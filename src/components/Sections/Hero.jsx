@@ -31,7 +31,10 @@ const Hero = ({
   }, { scope: container });
 
   return (
-    <section ref={container} className="relative h-screen w-full overflow-hidden">
+    <section 
+      ref={container} 
+      className="relative w-full overflow-hidden h-[calc(100vh-64px)] max-lg:h-[calc(100vh-70px)] max-sm:h-[calc(100vh-65px)]"
+    >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video

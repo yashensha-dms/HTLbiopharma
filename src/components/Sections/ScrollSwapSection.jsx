@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-
+import SectionLayout from '../Layout/SectionLayout';
 import ValueCard from '../Cards/ValueCard';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -71,57 +71,57 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
   const secondGroup = items.slice(6, 12);
 
   return (
-    <section 
+    <SectionLayout 
       ref={sectionRef} 
-      className="w-full h-[calc(100vh-64px)] bg-[#fcfcfc] overflow-hidden flex flex-col justify-center"
+      className="bg-[#fcfcfc]"
+      containerClassName="h-full flex flex-col py-12"
+      fullWidth={true}
     >
-      <div ref={containerRef} className="container-custom w-full h-full flex flex-col justify-center py-12">
-        {/* Header */}
-        <div className="mb-10">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-[1px] bg-brand-red"></div>
-            <h4 className="text-brand-red font-bold tracking-[0.4em] text-[9px] uppercase">
-              {subtitle}
-            </h4>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 leading-tight tracking-tight">
-            {title.split('<br/>').map((line, i) => (
-              <React.Fragment key={i}>
-                {line}
-                {i < title.split('<br/>').length - 1 && <br />}
-              </React.Fragment>
-            ))}
-          </h2>
+      {/* Header */}
+      <div className="mb-10">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-8 h-[1px] bg-brand-red"></div>
+          <h4 className="text-brand-red font-bold tracking-[0.4em] text-[9px] uppercase">
+            {subtitle}
+          </h4>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-light text-gray-900 leading-tight tracking-tight">
+          {title.split('<br/>').map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < title.split('<br/>').length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </h2>
+      </div>
+
+      {/* Card Area */}
+      <div className="relative flex-grow min-h-[500px]">
+        {/* Group 1 */}
+        <div 
+          ref={group1Ref}
+          className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+        >
+          {firstGroup.map((item, idx) => (
+            <div key={idx} className="swap-card-wrapper h-full">
+              <ValueCard {...item} />
+            </div>
+          ))}
         </div>
 
-        {/* Card Area */}
-        <div className="relative flex-grow min-h-[500px]">
-          {/* Group 1 */}
-          <div 
-            ref={group1Ref}
-            className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
-          >
-            {firstGroup.map((item, idx) => (
-              <div key={idx} className="swap-card-wrapper h-full">
-                <ValueCard {...item} />
-              </div>
-            ))}
-          </div>
-
-          {/* Group 2 */}
-          <div 
-            ref={group2Ref}
-            className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr opacity-0 pointer-events-none"
-          >
-            {secondGroup.map((item, idx) => (
-              <div key={idx} className="swap-card-wrapper h-full">
-                <ValueCard {...item} />
-              </div>
-            ))}
-          </div>
+        {/* Group 2 */}
+        <div 
+          ref={group2Ref}
+          className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr opacity-0 pointer-events-none"
+        >
+          {secondGroup.map((item, idx) => (
+            <div key={idx} className="swap-card-wrapper h-full">
+              <ValueCard {...item} />
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </SectionLayout>
   );
 };
 

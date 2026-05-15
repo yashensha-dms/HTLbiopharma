@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import SubPageHero from '../components/Sections/SubPageHero';
 import ValueCard from '../components/Cards/ValueCard';
+import SectionLayout from '../components/Layout/SectionLayout';
 import './About.css';
 
 // Register GSAP ScrollTrigger plugin
@@ -317,11 +318,8 @@ const About = () => {
         </div>
       </div>
 
-      <section className="why-htl-section" ref={whySectionRef}>
-        <div className="why-htl-container">
-          <h2 className="why-htl-title">WHY <span>HTL BIOPHARMA</span>?</h2>
-        </div>
-        
+      <SectionLayout ref={whySectionRef} className="why-htl-section">
+        <h2 className="why-htl-title">WHY <span>HTL BIOPHARMA</span>?</h2>
         <div className="why-list">
           {whyItems.map((item, index) => (
             <div key={index} className="why-item">
@@ -333,7 +331,7 @@ const About = () => {
             </div>
           ))}
         </div>
-      </section>
+      </SectionLayout>
 
       <section 
         className="sustainability-section" 
@@ -350,60 +348,54 @@ const About = () => {
         </div>
       </section>
 
-      <section className="vertical-intro-section" ref={verticalIntroRef}>
-        <div className="vertical-intro-container">
-          <div className="vertical-intro-text">
-            <p>
-              <strong>HTL BioPharma</strong> is a specialised vertical of <span className="red-text">HTL</span>, 
-              dedicated to regulatory-driven, controlled clean environments across 
-              pharmaceuticals, biotechnology, personal care, cosmetics, and 
-              allied sectors. Backed by three decades of engineering and 
-              project management excellence, it combines proven delivery, 
-              compliance expertise, and a people-first culture to build trusted, 
-              future-ready GMP facilities and mission-critical infrastructure.
-            </p>
-            <div className="vertical-intro-nav">
-              <button className="arrow-btn">
-                <ArrowRight />
-              </button>
-            </div>
+      <SectionLayout ref={verticalIntroRef} className="vertical-intro-section">
+        <div className="vertical-intro-text">
+          <p>
+            <strong>HTL BioPharma</strong> is a specialised vertical of <span className="red-text">HTL</span>, 
+            dedicated to regulatory-driven, controlled clean environments across 
+            pharmaceuticals, biotechnology, personal care, cosmetics, and 
+            allied sectors. Backed by three decades of engineering and 
+            project management excellence, it combines proven delivery, 
+            compliance expertise, and a people-first culture to build trusted, 
+            future-ready GMP facilities and mission-critical infrastructure.
+          </p>
+          <div className="vertical-intro-nav">
+            <button className="arrow-btn">
+              <ArrowRight />
+            </button>
           </div>
         </div>
-      </section>
+      </SectionLayout>
 
-      <section className="values-section" ref={valuesSectionRef}>
-        <div className="values-container">
-          <h2 className="values-title">OUR VALUES</h2>
-          <div className="values-grid">
-            {valuesData.map((value, index) => (
-              <div key={index} className="value-card-wrapper">
-                <ValueCard title={value.title} description={value.description} />
+      <SectionLayout ref={valuesSectionRef} className="values-section">
+        <h2 className="values-title">OUR VALUES</h2>
+        <div className="values-grid">
+          {valuesData.map((value, index) => (
+            <div key={index} className="value-card-wrapper">
+              <ValueCard title={value.title} description={value.description} />
+            </div>
+          ))}
+        </div>
+      </SectionLayout>
+
+      <SectionLayout ref={sectorsSectionRef} className="sectors-section" containerClassName="flex flex-col md:flex-row items-center">
+        <div className="sectors-left">
+          <img src="/images/AboutUs/Sector%20section.png" alt="Biopharma Sector" />
+        </div>
+        <div className="sectors-right">
+          <h4 className="sectors-label">SECTORS</h4>
+          <div className="sectors-list">
+            {sectors.map((sector, index) => (
+              <div key={index} className="sector-item group">
+                <h3>{sector}</h3>
+                <div className="sector-arrow">
+                  <ArrowRight size={32} strokeWidth={1.5} />
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="sectors-section" ref={sectorsSectionRef}>
-        <div className="sectors-container">
-          <div className="sectors-left">
-            <img src="/images/AboutUs/Sector%20section.png" alt="Biopharma Sector" />
-          </div>
-          <div className="sectors-right">
-            <h4 className="sectors-label">SECTORS</h4>
-            <div className="sectors-list">
-              {sectors.map((sector, index) => (
-                <div key={index} className="sector-item group">
-                  <h3>{sector}</h3>
-                  <div className="sector-arrow">
-                    <ArrowRight size={32} strokeWidth={1.5} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      </SectionLayout>
     </div>
   );
 };

@@ -12,6 +12,20 @@
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .subpage-hero {
+    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
+  }
+}
+
+@media (max-width: 480px) {
+  .subpage-hero {
+    height: calc(100vh - 65px);
+    min-height: calc(100vh - 65px);
+  }
+}
+
 .subpage-hero-overlay {
   width: 100%;
   height: 100%;
@@ -24,7 +38,7 @@
   );
   display: flex;
   align-items: flex-end;
-  padding: 80px 100px; /* Aligned with standard layout padding */
+  padding-bottom: 80px; /* Space from bottom */
   box-sizing: border-box;
 }
 
