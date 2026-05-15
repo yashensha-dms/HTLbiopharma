@@ -7,6 +7,7 @@ import Compliance from './pages/Compliance';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import OurTeam from './pages/OurTeam';
+import EPC from './pages/EPC';
 import Contact from './pages/Contact';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<OurTeam />} />
+          <Route path="/epc" element={<EPC />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

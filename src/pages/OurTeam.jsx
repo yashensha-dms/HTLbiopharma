@@ -122,7 +122,7 @@ const OurTeam = () => {
     {
       name: "Balaji Madrewar",
       role: "Founder & MD at HTL",
-      image: "/images/team%20new/Bhagyesh%20G.webp",
+      image: "/images/team%20new/Balaji.jpeg",
       linkedinUrl: "#"
     },
     {
