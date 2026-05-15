@@ -4,19 +4,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { ArrowRight } from 'lucide-react';
 import SubPageHero from '../components/Sections/SubPageHero';
-import Footer from '../components/Layout/Footer';
+import ValueCard from '../components/Cards/ValueCard';
 import './About.css';
 
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const pageRef = useRef(null);
   const containerRef = useRef(null);
   const missionRef = useRef(null);
   const visionRef = useRef(null);
   const whySectionRef = useRef(null);
   const sustainabilitySectionRef = useRef(null);
   const verticalIntroRef = useRef(null);
+  const valuesSectionRef = useRef(null);
+  const sectorsSectionRef = useRef(null);
 
   const whyItems = [
     { text: "GLOBAL PARTNER", length: "40%" },
@@ -26,6 +29,54 @@ const About = () => {
     { text: "PROCESS KNOWHOW", length: "45%" },
     { text: "PROVEN EXPERIENCE OF GMP & REGULATORY COMPLIANCE", length: "38%" }
   ];
+
+  const valuesData = [
+    {
+      title: "Safety <br />First",
+      description: "Our services & works are carried out with the highest standard of safety & ethics."
+    },
+    {
+      title: "Quality <br />Consistency",
+      description: "We delivered only quality solutions, to achieve maximum purpose driven satisfactory."
+    },
+    {
+      title: "Efficiency & <br />Proficiency",
+      description: "We are committed to maximize available resources to achieve the best result collectively."
+    },
+    {
+      title: "Engineering <br />Capabilities",
+      description: "Ultra-clean fabrication facilities engineered and built to support precision semiconductor manufacturing environments."
+    },
+    {
+      title: "Honesty and <br />Integrity",
+      description: "Honesty and integrity is our core code of conduct, we foster trust, accountability, professionalism and ethical practices."
+    },
+    {
+      title: "Pursuit of <br />Excellence",
+      description: "We are devoted to achieve excellence in all our works, providing sustainable solutions to complex challenges."
+    }
+  ];
+
+  const sectors = [
+    "Pharmaceuticals",
+    "BioPharma & Life Sciences",
+    "Medical Devices",
+    "Cosmetic & Personal Care",
+    "Industrial Application"
+  ];
+
+  // ANIMATION: Global Background Transition
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: verticalIntroRef.current,
+      start: 'top 60%',
+      end: 'bottom 40%',
+      onEnter: () => gsap.to('.about-page', { backgroundColor: '#000000', duration: 1, ease: 'power2.inOut' }),
+      onLeaveBack: () => gsap.to('.about-page', { backgroundColor: '#ffffff', duration: 1, ease: 'power2.inOut' }),
+      onLeave: () => gsap.to('.about-page', { backgroundColor: '#ffffff', duration: 1, ease: 'power2.inOut' }),
+      onEnterBack: () => gsap.to('.about-page', { backgroundColor: '#000000', duration: 1, ease: 'power2.inOut' }),
+    });
+  }, { scope: pageRef });
 
   // ANIMATION: Mission & Vision Pinning
   useGSAP(() => {
@@ -122,10 +173,10 @@ const About = () => {
     const nav = verticalIntroRef.current.querySelector('.vertical-intro-nav');
 
     gsap.fromTo(text, 
-      { opacity: 0, x: -50 },
+      { opacity: 0, y: 30 },
       { 
         opacity: 1, 
-        x: 0, 
+        y: 0, 
         duration: 1, 
         ease: "power3.out",
         scrollTrigger: {
@@ -153,8 +204,79 @@ const About = () => {
     );
   }, { scope: verticalIntroRef });
 
+  // ANIMATION: Values Section
+  useGSAP(() => {
+    const cards = gsap.utils.toArray('.value-card-wrapper');
+    
+    gsap.fromTo(cards, 
+      { opacity: 0, y: 40 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.8, 
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: valuesSectionRef.current,
+          start: 'top 60%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+  }, { scope: valuesSectionRef });
+
+  // ANIMATION: Sectors Section
+  useGSAP(() => {
+    const left = sectorsSectionRef.current.querySelector('.sectors-left');
+    const img = left.querySelector('img');
+    const items = gsap.utils.toArray('.sector-item');
+
+    gsap.fromTo(left, 
+      { opacity: 0, x: -100 },
+      { 
+        opacity: 1, 
+        x: 0, 
+        duration: 1.2, 
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: sectorsSectionRef.current,
+          start: 'top 60%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+
+    gsap.fromTo(items, 
+      { opacity: 0, x: 50 },
+      { 
+        opacity: 1, 
+        x: 0, 
+        duration: 0.8, 
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectorsSectionRef.current,
+          start: 'top 60%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+
+    // Parallax on image
+    gsap.to(img, {
+      y: -30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: sectorsSectionRef.current,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  }, { scope: sectorsSectionRef });
+
   return (
-    <div className="about-page">
+    <div className="about-page" ref={pageRef}>
       <SubPageHero 
         title="Engineering High-Quality, Affordable Healthcare Infrastructure"
         subtitle="Optimised. Compliant. Future-ready Solutions"
@@ -240,13 +362,45 @@ const About = () => {
               compliance expertise, and a people-first culture to build trusted, 
               future-ready GMP facilities and mission-critical infrastructure.
             </p>
+            <div className="vertical-intro-nav">
+              <button className="arrow-btn">
+                <ArrowRight />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div className="flex flex-col gap-5">
-            {/* <a href="#" className="read-more-link">READ MORE</a> */}
-             <button className="arrow-btn">
-              <ArrowRight />
-            </button>
-</div>
+      <section className="values-section" ref={valuesSectionRef}>
+        <div className="values-container">
+          <h2 className="values-title">OUR VALUES</h2>
+          <div className="values-grid">
+            {valuesData.map((value, index) => (
+              <div key={index} className="value-card-wrapper">
+                <ValueCard title={value.title} description={value.description} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sectors-section" ref={sectorsSectionRef}>
+        <div className="sectors-container">
+          <div className="sectors-left">
+            <img src="/images/AboutUs/Sector%20section.png" alt="Biopharma Sector" />
+          </div>
+          <div className="sectors-right">
+            <h4 className="sectors-label">SECTORS</h4>
+            <div className="sectors-list">
+              {sectors.map((sector, index) => (
+                <div key={index} className="sector-item group">
+                  <h3>{sector}</h3>
+                  <div className="sector-arrow">
+                    <ArrowRight size={32} strokeWidth={1.5} />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
