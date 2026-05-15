@@ -1,0 +1,82 @@
+/* SubPageHero.css */
+.subpage-hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.subpage-hero-overlay {
+  width: 100%;
+  height: 100%;
+  /* Subtle dark gradient at the bottom to ensure text readability */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 80px 100px; /* Aligned with standard layout padding */
+  box-sizing: border-box;
+}
+
+.subpage-hero-content {
+  max-width: 900px;
+  width: 100%;
+}
+
+.subpage-hero-title {
+  color: #ffffff;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -2.16px;
+  margin-bottom: 16px;
+}
+
+.subpage-hero-subtitle {
+  color: #ffffff;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: -0.8px;
+  opacity: 0.95;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .subpage-hero-overlay {
+    padding: 60px 40px;
+  }
+  .subpage-hero-title {
+    font-size: 42px;
+    letter-spacing: -1.5px;
+  }
+  .subpage-hero-subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subpage-hero-overlay {
+    padding: 40px 20px;
+  }
+  .subpage-hero-title {
+    font-size: 32px;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .subpage-hero-subtitle {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+}
