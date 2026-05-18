@@ -61,6 +61,7 @@ const epcExcellenceItems = [
 ];
 
 const EPC = () => {
+  const containerRef = useRef(null);
   const introRef = useRef(null);
   const valueRef = useRef(null);
   const detailRef = useRef(null);
@@ -297,10 +298,10 @@ const EPC = () => {
     return () => {
       window.removeEventListener('load', refreshTrigger);
     };
-  }, []);
+  }, { scope: containerRef });
 
   return (
-    <div className="epc-page">
+    <div className="epc-page" ref={containerRef}>
       <SubPageHero 
         title="Delivering Integrated EPC excellence for Regulated Facilities"
         subtitle="Single-window EPC partner with Holistic Ownership, Accountability, and Integrated execution."
@@ -425,7 +426,7 @@ const EPC = () => {
               </g>
               <g className="v-step">
                 <circle cx="430" cy="80" r="6" fill="#ef4444" />
-                <text x="440" y="70" textAnchor="start" className="v-node-label font-bold fill-red-600">Validation</text>
+                <text x="420" y="70" textAnchor="start" className="v-node-label font-bold fill-red-600">Validation</text>
               </g>
             </svg>
 
@@ -471,7 +472,7 @@ const EPC = () => {
                   Know about <br />
                   <span className="font-bold">our approach</span>
                 </h2>
-                <a href="/our-approach" className="approach-link">
+                <a href="/approach" className="approach-link">
                   READ MORE
                 </a>
               </div>

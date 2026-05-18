@@ -32,18 +32,21 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
     const group1Cards = group1Ref.current.querySelectorAll('.swap-card-wrapper');
     const group2Cards = group2Ref.current.querySelectorAll('.swap-card-wrapper');
 
-    // Initial state
+    // Initial state setup to avoid FOUC or scrubbing issues
+    gsap.set(group1Ref.current, { visibility: 'visible', opacity: 1, pointerEvents: 'auto' });
     gsap.set(group2Ref.current, { visibility: 'hidden', opacity: 0, pointerEvents: 'none' });
 
-    tl.to(group1Cards, {
+    tl.fromTo(group1Cards, 
+      { y: 0, opacity: 1 },
+      {
         y: -40,
         opacity: 0,
         stagger: 0.05,
         duration: 1,
         ease: "power2.inOut",
       })
-      .set(group1Ref.current, { visibility: 'hidden', pointerEvents: 'none' })
-      .set(group2Ref.current, { visibility: 'visible', opacity: 1, pointerEvents: 'auto' })
+      .to(group1Ref.current, { autoAlpha: 0, duration: 0.01 })
+      .to(group2Ref.current, { autoAlpha: 1, duration: 0.01 })
       .fromTo(group2Cards, 
         { y: 40, opacity: 0 },
         { 
@@ -66,12 +69,14 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
     >
       {/* Header */}
       <div className="mb-10">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-8 h-[1px] bg-brand-red"></div>
-          <h4 className="text-brand-red font-bold tracking-[0.4em] text-[9px] uppercase">
-            {subtitle}
-          </h4>
-        </div>
+        {subtitle && (
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-8 h-[1px] bg-brand-red"></div>
+            <h4 className="text-brand-red font-bold tracking-[0.4em] text-[9px] uppercase">
+              {subtitle}
+            </h4>
+          </div>
+        )}
         <h2 className="text-4xl md:text-5xl font-light text-gray-900 leading-tight tracking-tight">
           {title.split('<br/>').map((line, i) => (
             <React.Fragment key={i}>
@@ -92,11 +97,11 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
           ))}
         </div>
       ) : (
-        <div className="relative flex-grow min-h-[500px]">
-          {/* Group 1 */}
+        <div className="relative flex-grow">
+          {/* Group 1 - Dictates the height */}
           <div 
             ref={group1Ref}
-            className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+            className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr relative z-10"
           >
             {items.slice(0, 6).map((item, idx) => (
               <div key={idx} className="swap-card-wrapper h-full">
@@ -105,10 +110,10 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
             ))}
           </div>
 
-          {/* Group 2 */}
+          {/* Group 2 - Absolute overlaid on Group 1 */}
           <div 
             ref={group2Ref}
-            className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr opacity-0 pointer-events-none"
+            className="absolute top-0 left-0 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr opacity-0 pointer-events-none z-20"
           >
             {items.slice(6, 12).map((item, idx) => (
               <div key={idx} className="swap-card-wrapper h-full">
