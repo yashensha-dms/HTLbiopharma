@@ -1,0 +1,87 @@
+.sector-intro-wrapper {
+  /* Combine with SectionLayout to fix exact height on desktop */
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .sector-intro-wrapper {
+    max-height: calc(100vh - 64px);
+    height: calc(100vh - 64px);
+  }
+}
+
+.sector-intro {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.sector-intro-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  .sector-intro {
+    padding: 0;
+  }
+  .sector-intro-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
+}
+
+.sector-intro-image-wrapper {
+  flex: 1;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 1024px) {
+  .sector-intro-image-wrapper {
+    height: 75vh;
+    max-height: 700px;
+  }
+}
+
+.sector-intro-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.15); /* GSAP will animate this to 1 */
+}
+
+.sector-intro-content {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sector-intro-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #334155; /* slate-700 */
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+@media (min-width: 1280px) {
+  .sector-intro-content p {
+    font-size: 1.125rem;
+  }
+}
+
+.sector-intro-content p:last-child {
+  margin-bottom: 0;
+}

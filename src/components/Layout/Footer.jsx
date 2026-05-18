@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -10,21 +11,20 @@ const Footer = () => {
         <div className="Topper-containers">
           <h5 className="footer-section-header">Company</h5>
           <div className="footer-link-group">
-            <a href="about.html">About Us</a>
-            <a href="team.html">Our Team</a>
-            <a href="epc.html">EPC</a>
-            <a href="sustainability.html">Sustainability</a>
-            <a href="approach.html">Our Approach</a>
+            <Link to="/about">About Us</Link>
+            <Link to="/team">Our Team</Link>
+            <Link to="/epc">EPC</Link>
+            <Link to="/approach">Our Approach</Link>
           </div>
         </div>
         <div className="Topper-containers">
           <h5 className="footer-section-header">services</h5>
           <div className="footer-link-group">
-            <a href="pharmaceuticals.html">Pharmaceuticals</a>
-            <a href="biopharmaceuticals.html">Biopharmaceuticals</a>
-            <a href="medical-devices.html">Medical Devices</a>
-            <a href="cosmetics.html">Cosmetics</a>
-            <a href="industrial-appliances.html">Industrial Appliances</a>
+            <Link to="/pharmaceuticals">Pharmaceuticals</Link>
+            <Link to="/biopharmaceuticals">Biopharmaceuticals</Link>
+            <Link to="/medical-devices">Medical Devices</Link>
+            <Link to="/cosmetics">Cosmetics</Link>
+            <Link to="/industrial-appliances">Industrial Appliances</Link>
           </div>
         </div>
         <div className="Topper-containers-last">

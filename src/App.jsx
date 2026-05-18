@@ -8,6 +8,12 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import OurTeam from './pages/OurTeam';
 import EPC from './pages/EPC';
+import Approach from './pages/Approach';
+import Pharmaceuticals from './pages/Pharmaceuticals';
+import Biopharmaceuticals from './pages/Biopharmaceuticals';
+import IndustrialAppliances from './pages/IndustrialAppliances';
+import Cosmetics from './pages/Cosmetics';
+import MedicalDevices from './pages/MedicalDevices';
 import Contact from './pages/Contact';
 
 function App() {
@@ -22,6 +28,12 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<OurTeam />} />
           <Route path="/epc" element={<EPC />} />
+          <Route path="/approach" element={<Approach />} />
+          <Route path="/pharmaceuticals" element={<Pharmaceuticals />} />
+          <Route path="/biopharmaceuticals" element={<Biopharmaceuticals />} />
+          <Route path="/industrial-appliances" element={<IndustrialAppliances />} />
+          <Route path="/cosmetics" element={<Cosmetics />} />
+          <Route path="/medical-devices" element={<MedicalDevices />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

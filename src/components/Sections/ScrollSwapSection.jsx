@@ -13,21 +13,19 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
   const group1Ref = useRef(null);
   const group2Ref = useRef(null);
 
+  const hasMoreThanTwoRows = items.length > 6;
+
   useGSAP(() => {
+    if (!hasMoreThanTwoRows) return;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top 64px",
-        end: "+=300%",
+        end: "+=150%", // Shorter pin distance for better UX
         pin: true,
-        scrub: 2, // Slower, more controlled scrub
-        anticipatePin: 1,
-        snap: {
-          snapTo: "labels", // Snap to the labels we define below
-          duration: { min: 0.3, max: 0.8 },
-          delay: 0.1,
-          ease: "power2.inOut"
-        }
+        scrub: 1, // Tighter scrub for better Lenis integration
+        anticipatePin: 1
       }
     });
 
@@ -35,40 +33,29 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
     const group2Cards = group2Ref.current.querySelectorAll('.swap-card-wrapper');
 
     // Initial state
-    gsap.set(group2Ref.current, { visibility: 'hidden', opacity: 0 });
+    gsap.set(group2Ref.current, { visibility: 'hidden', opacity: 0, pointerEvents: 'none' });
 
-    tl.addLabel("start")
-      .to(group1Cards, {
-        y: -20,
+    tl.to(group1Cards, {
+        y: -40,
         opacity: 0,
         stagger: 0.05,
         duration: 1,
         ease: "power2.inOut",
       })
-      .addLabel("swap") // Stop point for the swap
-      .to({}, { duration: 2 }) // Increased reading pause
-      .set(group1Ref.current, { visibility: 'hidden' })
-      .set(group2Ref.current, { visibility: 'visible', opacity: 1 })
+      .set(group1Ref.current, { visibility: 'hidden', pointerEvents: 'none' })
+      .set(group2Ref.current, { visibility: 'visible', opacity: 1, pointerEvents: 'auto' })
       .fromTo(group2Cards, 
-        { y: 20, opacity: 0 },
+        { y: 40, opacity: 0 },
         { 
           y: 0, 
           opacity: 1, 
           stagger: 0.05,
           duration: 1, 
-          ease: "power2.out",
-          onStart: () => {
-            gsap.set(group2Ref.current, { pointerEvents: 'auto' });
-            gsap.set(group1Ref.current, { pointerEvents: 'none' });
-          }
+          ease: "power2.out"
         }
-      )
-      .addLabel("end");
+      );
 
   }, { scope: sectionRef });
-
-  const firstGroup = items.slice(0, 6);
-  const secondGroup = items.slice(6, 12);
 
   return (
     <SectionLayout 
@@ -96,31 +83,41 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
       </div>
 
       {/* Card Area */}
-      <div className="relative flex-grow min-h-[500px]">
-        {/* Group 1 */}
-        <div 
-          ref={group1Ref}
-          className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
-        >
-          {firstGroup.map((item, idx) => (
-            <div key={idx} className="swap-card-wrapper h-full">
+      {!hasMoreThanTwoRows ? (
+        <div className="flex-grow w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+          {items.map((item, idx) => (
+            <div key={idx} className="h-full">
               <ValueCard {...item} />
             </div>
           ))}
         </div>
+      ) : (
+        <div className="relative flex-grow min-h-[500px]">
+          {/* Group 1 */}
+          <div 
+            ref={group1Ref}
+            className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+          >
+            {items.slice(0, 6).map((item, idx) => (
+              <div key={idx} className="swap-card-wrapper h-full">
+                <ValueCard {...item} />
+              </div>
+            ))}
+          </div>
 
-        {/* Group 2 */}
-        <div 
-          ref={group2Ref}
-          className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr opacity-0 pointer-events-none"
-        >
-          {secondGroup.map((item, idx) => (
-            <div key={idx} className="swap-card-wrapper h-full">
-              <ValueCard {...item} />
-            </div>
-          ))}
+          {/* Group 2 */}
+          <div 
+            ref={group2Ref}
+            className="absolute inset-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr opacity-0 pointer-events-none"
+          >
+            {items.slice(6, 12).map((item, idx) => (
+              <div key={idx} className="swap-card-wrapper h-full">
+                <ValueCard {...item} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </SectionLayout>
   );
 };

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SubPageHero from '../components/Sections/SubPageHero';
 import ValueCard from '../components/Cards/ValueCard';
 import SectionLayout from '../components/Layout/SectionLayout';
@@ -59,11 +59,11 @@ const About = () => {
   ];
 
   const sectors = [
-    "Pharmaceuticals",
-    "BioPharma & Life Sciences",
-    "Medical Devices",
-    "Cosmetic & Personal Care",
-    "Industrial Application"
+    { name: "Pharmaceuticals", path: "/pharmaceuticals" },
+    { name: "BioPharma & Life Sciences", path: "/biopharmaceuticals" },
+    { name: "Medical Devices", path: "/medical-devices" },
+    { name: "Cosmetic & Personal Care", path: "/cosmetics" },
+    { name: "Industrial Application", path: "/industrial-appliances" }
   ];
 
   // ANIMATION: Global Background Transition
@@ -386,12 +386,12 @@ const About = () => {
           <h4 className="sectors-label">SECTORS</h4>
           <div className="sectors-list">
             {sectors.map((sector, index) => (
-              <div key={index} className="sector-item group">
-                <h3>{sector}</h3>
+              <Link to={sector.path} key={index} className="sector-item group block">
+                <h3>{sector.name}</h3>
                 <div className="sector-arrow">
-                  <ArrowRight size={32} strokeWidth={1.5} />
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

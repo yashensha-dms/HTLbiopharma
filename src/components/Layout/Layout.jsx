@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import useSmoothScroll from '../../hooks/useSmoothScroll';
 import ContactForm from '../UI/ContactForm';
+import ScrollToTopButton from '../UI/ScrollToTopButton';
 import { FormProvider, useForm } from '../../context/FormContext';
 
 const LayoutContent = ({ children }) => {
@@ -30,6 +31,7 @@ const LayoutContent = ({ children }) => {
       </main>
       <Footer />
       <ContactForm isOpen={isContactOpen} onClose={closeContact} />
+      <ScrollToTopButton />
     </div>
   );
 };

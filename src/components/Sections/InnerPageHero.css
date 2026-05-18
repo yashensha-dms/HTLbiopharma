@@ -1,0 +1,82 @@
+.inner-hero {
+  position: relative;
+  height: calc(100vh - 64px);
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #111;
+  margin-top: 64px; /* Account for navbar if needed, or if fixed nav */
+}
+
+/* Adjust if navbar is transparent/absolute */
+@media (min-width: 1024px) {
+  .inner-hero {
+    margin-top: 0;
+  }
+}
+
+.inner-hero-bg {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%;
+}
+
+.inner-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.inner-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+.inner-hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  max-width: 1000px;
+  padding: 0 24px;
+}
+
+.inner-hero-title {
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.inner-hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #f1f5f9;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .inner-hero {
+    height: 50vh;
+  }
+  .inner-hero-title {
+    font-size: 2.2rem;
+  }
+  .inner-hero-subtitle {
+    font-size: 1.1rem;
+  }
+}

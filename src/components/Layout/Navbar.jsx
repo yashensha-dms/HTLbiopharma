@@ -135,7 +135,6 @@ const Navbar = () => {
                   <NavLink to="/about">About Us</NavLink>
                   <NavLink to="/team">Our Team</NavLink>
                   <NavLink to="/epc">EPC</NavLink>
-                  <NavLink to="/sustainability">Sustainability</NavLink>
                   <NavLink to="/approach">Our Approach</NavLink>
                 </div>
               </div>
@@ -208,7 +207,6 @@ const Navbar = () => {
               <Link to="/about">About Us</Link>
               <Link to="/team">Our Team</Link>
               <Link to="/epc">EPC</Link>
-              <Link to="/sustainability">Sustainability</Link>
               <Link to="/approach">Our Approach</Link>
             </div>
           </div>

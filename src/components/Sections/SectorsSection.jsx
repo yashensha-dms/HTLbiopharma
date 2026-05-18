@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const SectorItem = ({ title, description, image }) => {
+const SectorItem = ({ title, description, image, link }) => {
   return (
     <div className="group py-12 border-b border-gray-200 last:border-0">
       <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-10 md:gap-20 items-center">
@@ -21,12 +22,12 @@ const SectorItem = ({ title, description, image }) => {
           <p className="text-gray-500 leading-relaxed max-w-2xl text-sm md:text-base">
             {description}
           </p>
-          <a 
-            href="#" 
+          <Link 
+            to={link || "#"} 
             className="inline-block text-brand-red text-xs font-bold uppercase tracking-widest hover:translate-x-2 transition-transform"
           >
             READ MORE
-          </a>
+          </Link>
         </div>
       </div>
     </div>

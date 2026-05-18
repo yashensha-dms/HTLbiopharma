@@ -1,0 +1,23 @@
+import React from 'react';
+import SectorPageLayout from '../components/Layout/SectorPageLayout';
+
+const Cosmetics = () => {
+  const introParagraphs = [
+    "Cosmeceuticals and medical aesthetics represent a strategic extension of HTL Biopharma's pharmaceutical and regulatory expertise.",
+    "HTL Biopharma delivers precision-engineered manufacturing environments for cosmetics and personal care production, integrating hygienic process design with advanced automation systems. Our expertise enables single-window solutions across hygiene, process engineering, compliance, automation, and project management.",
+    "We optimise facility design and MEP infrastructure to support efficient, large-scale manufacturing operations. By aligning engineering with GMP principles and operational performance, HTL Biopharma enables reliable production, regulatory compliance, and scalable growth.",
+    "Our capabilities span the full spectrum of cosmetics and personal care manufacturing including skincare, haircare, liquids, emulsions, aerosols, personal hygiene, oral care, beauty & makeup, and fragrances."
+  ];
+
+  return (
+    <SectorPageLayout
+      heroTitle="Delivering Cosmeceuticals Manufacturing Infrastructure"
+      heroSubtitle="Hygienic process facilities engineered for automated, high-volume cosmetics and personal care production with strict quality and regulatory compliance."
+      heroBgImage="/images/Sector%20pages/ALL%20SECTOR%20HEADER%20.png"
+      introImage="/images/Sector%20pages/Cosmeticals/Screenshot%202026-05-04%20at%202.55.19%E2%80%AFPM.png"
+      introParagraphs={introParagraphs}
+    />
+  );
+};
+
+export default Cosmetics;

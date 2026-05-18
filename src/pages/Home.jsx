@@ -9,27 +9,32 @@ const sectorsData = [
   {
     title: "Pharmaceuticals",
     description: "HTL Biopharma delivers integrated EPC solutions for GMP-compliant pharmaceutical facilities. We Engineer and build regulated, audit-ready environments aligned with global standards — enabling compliant production, operational precision, and scalable growth.",
-    image: "/images/sectors/Pharmaceuticals .png"
+    image: "/images/sectors/Pharmaceuticals .png",
+    link: "/pharmaceuticals"
   },
   {
     title: "BioPharma & Life Sciences",
     description: "Advancing biopharma and life sciences infrastructure with end-to-end EPC solutions, we engineer validation-ready, high-performance facilities that support biologics manufacturing, research innovation, and compliance with evolving global regulatory frameworks.",
-    image: "/images/sectors/BioPharma & Life Sciences .png"
+    image: "/images/sectors/BioPharma & Life Sciences .png",
+    link: "/biopharmaceuticals"
   },
   {
     title: "Medical Devices",
     description: "Enabling precision medical device manufacturing, we engineer compliant, cleanroom-driven facilities aligned with global regulatory standards, integrating validated utilities, quality control systems, and controlled environments to ensure traceability, operational reliability, and scalable, high-performance production.",
-    image: "/images/sectors/Medical Devices .png"
+    image: "/images/sectors/Medical Devices .png",
+    link: "/medical-devices"
   },
   {
     title: "Cosmetic & Personal Care",
     description: "Advancing cosmetic and personal care manufacturing infrastructure, we build regulated, contamination-controlled facilities as per the international standards, enabling precision formulation, operational efficiency, and scalable production that meets evolving global quality and safety expectations.",
-    image: "/images/sectors/Cosmetic & Personal Care.png"
+    image: "/images/sectors/Cosmetic & Personal Care.png",
+    link: "/cosmetics"
   },
   {
     title: "Industrial Application",
     description: "Powering advanced industrial applications, we build cleanroom-integrated facilities for solar, semiconductor, and electronics manufacturing, delivering contamination-controlled environments, high-purity utilities, and precision-engineered infrastructure that support performance-driven production aligned with global quality and operational standards.",
-    image: "/images/sectors/Industrial Application .png"
+    image: "/images/sectors/Industrial Application .png",
+    link: "/industrial-appliances"
   }
 ];
 

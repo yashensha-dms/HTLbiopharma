@@ -1,0 +1,235 @@
+.approach-flow-section {
+  padding: 100px 0;
+  background-color: #f7f9fa;
+  color: #1a202c;
+  font-family: inherit;
+}
+
+.approach-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.flow-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.flow-header h2 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.flow-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.phase-block {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.phase-block.has-sidebar {
+  padding-right: 100px;
+}
+
+.phase-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.phase-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #eaeaea;
+}
+
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.task-card {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 20px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #334155;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  background: #ffffff;
+  border-color: #94a3b8;
+}
+
+.accent-border {
+  border: 2px solid #D91623;
+  color: #D91623;
+  background: #ffffff;
+  font-weight: 600;
+}
+
+.accent-border:hover {
+  background: #fef2f2;
+}
+
+.conceptual-design {
+  background: #f5f3f2;
+  color: #D91623;
+  font-weight: 600;
+  border-color: #e2dfdb;
+}
+
+.qualification-task {
+  background: #eae8e6;
+  border-color: #d1cbc7;
+  color: #475569;
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3;
+}
+
+.col-span-4 {
+  grid-column: span 4;
+}
+
+.wide-task {
+  grid-column: 1 / -1;
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.handover-block {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.handover-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #D91623;
+  color: white;
+  padding: 16px 56px;
+  border-radius: 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 10px 25px rgba(217, 22, 35, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.handover-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(217, 22, 35, 0.4);
+}
+
+.handover-btn::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 1px dashed #D91623;
+  border-radius: 12px;
+  animation: spinDash 10s linear infinite;
+}
+
+.validation-sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  background: #D91623;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 6px;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 1024px) {
+  .tasks-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .col-span-4 {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .phase-block {
+    padding: 24px;
+  }
+  .phase-block.has-sidebar {
+    padding-right: 24px;
+    padding-top: 70px;
+  }
+  .validation-sidebar {
+    width: 100%;
+    height: 50px;
+    bottom: auto;
+    writing-mode: horizontal-tb;
+    transform: none;
+    letter-spacing: 4px;
+  }
+  .tasks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .col-span-2, .col-span-3, .col-span-4 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .tasks-grid {
+    grid-template-columns: 1fr;
+  }
+  .col-span-2, .col-span-3, .col-span-4 {
+    grid-column: span 1;
+  }
+}
