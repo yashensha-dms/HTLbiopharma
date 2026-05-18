@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const useSmoothScroll = () => {
   useEffect(() => {
@@ -15,17 +19,23 @@ export const useSmoothScroll = () => {
       infinite: false,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // Tell ScrollTrigger to update when Lenis scrolls
+    lenis.on('scroll', ScrollTrigger.update);
 
-    requestAnimationFrame(raf);
+    // Sync Lenis RAF with GSAP's ticker
+    const tickerUpdate = (time) => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(tickerUpdate);
 
-    // Attach to window for global access (like the legacy site does for mobile toggle)
+    // Disable lag smoothing to prevent scroll drifting
+    gsap.ticker.lagSmoothing(0);
+
+    // Attach to window for global access
     window.lenis = lenis;
 
     return () => {
+      gsap.ticker.remove(tickerUpdate);
       lenis.destroy();
       window.lenis = null;
     };

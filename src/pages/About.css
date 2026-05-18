@@ -115,7 +115,8 @@
 
 .why-htl-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin-left: 0;
+  margin-right: auto;
   padding: 0 80px;
 }
 
@@ -150,7 +151,7 @@
   letter-spacing: 0;
   margin-bottom: 20px;
   text-transform: uppercase;
-  padding-left: 80px; /* Align with container padding */
+  /* padding-left: 80px; Align with container padding */
 }
 
 .why-line-wrapper {
@@ -208,7 +209,8 @@
   position: relative;
   z-index: 2;
   max-width: 1200px;
-  margin: 0 auto;
+  margin-left: 0;
+  margin-right: auto;
   padding: 0 80px;
   width: 100%;
 }
@@ -248,8 +250,21 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .mission-vision-scroll-wrapper {
+    height: auto;
+    overflow: visible;
+  }
   .mission-vision-slide {
-    padding: 60px 40px;
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 80px 20px;
+    z-index: auto;
+    background-color: #ffffff;
+  }
+  .vision-slide-absolute {
+    position: relative;
+    z-index: auto;
   }
   .mission-vision-container {
     flex-direction: column !important;
@@ -442,7 +457,8 @@
 
 .sectors-container {
   max-width: 1440px;
-  margin: 0 auto;
+  margin-left: 0;
+  margin-right: auto;
   padding: 0 80px;
   width: 100%;
   display: flex;

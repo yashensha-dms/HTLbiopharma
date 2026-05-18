@@ -90,6 +90,7 @@ const TeamCard = ({ name, role, image, linkedinUrl }) => {
 
 const OurTeam = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const containerRef = useRef(null);
   const leadershipRef = useRef(null);
   const foundersRef = useRef(null);
   const ceoRef = useRef(null);
@@ -237,10 +238,10 @@ const OurTeam = () => {
         }
       }
     );
-  }, { scope: managementContainerRef });
+  }, { scope: containerRef });
 
   return (
-    <div className="team-page">
+    <div className="team-page" ref={containerRef}>
       <SubPageHero 
         title="Our Team"
         subtitle="A glimpse into our work"

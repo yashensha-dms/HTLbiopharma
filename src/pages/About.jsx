@@ -73,45 +73,56 @@ const About = () => {
       trigger: verticalIntroRef.current,
       start: 'top 60%',
       end: 'bottom 40%',
-      onEnter: () => gsap.to('.about-page', { backgroundColor: '#000000', duration: 1, ease: 'power2.inOut' }),
-      onLeaveBack: () => gsap.to('.about-page', { backgroundColor: '#ffffff', duration: 1, ease: 'power2.inOut' }),
-      onLeave: () => gsap.to('.about-page', { backgroundColor: '#ffffff', duration: 1, ease: 'power2.inOut' }),
-      onEnterBack: () => gsap.to('.about-page', { backgroundColor: '#000000', duration: 1, ease: 'power2.inOut' }),
+      onEnter: () => gsap.to(pageRef.current, { backgroundColor: '#000000', duration: 1, ease: 'power2.inOut' }),
+      onLeaveBack: () => gsap.to(pageRef.current, { backgroundColor: '#ffffff', duration: 1, ease: 'power2.inOut' }),
+      onLeave: () => gsap.to(pageRef.current, { backgroundColor: '#ffffff', duration: 1, ease: 'power2.inOut' }),
+      onEnterBack: () => gsap.to(pageRef.current, { backgroundColor: '#000000', duration: 1, ease: 'power2.inOut' }),
     });
   }, { scope: pageRef });
 
   // ANIMATION: Mission & Vision Pinning
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 64px',
-        end: '+=250%',
-        pin: true,
-        scrub: 1.5,
-        anticipatePin: 1,
-      }
+    const mm = gsap.matchMedia();
+
+    // Desktop only: Pin and animate slide transitions
+    mm.add("(min-width: 1025px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: '+=250%',
+          pin: true,
+          scrub: 1.5,
+          anticipatePin: 1,
+        }
+      });
+
+      gsap.set(visionRef.current, { autoAlpha: 0, y: 30 });
+      gsap.set(missionRef.current, { autoAlpha: 1, y: 0 });
+
+      tl.to({}, { duration: 0.5 })
+        .to(missionRef.current, { 
+          autoAlpha: 0, 
+          y: -30, 
+          duration: 1,
+          ease: "power2.inOut",
+        })
+        .to(visionRef.current, { 
+          autoAlpha: 1, 
+          y: 0, 
+          duration: 1,
+          ease: "power2.out"
+        }, "-=0.3")
+        .to({}, { duration: 0.5 });
     });
 
-    gsap.set(visionRef.current, { opacity: 0, y: 30, visibility: 'hidden' });
+    // Mobile & Tablet: display naturally stacked as relative blocks
+    mm.add("(max-width: 1024px)", () => {
+      gsap.set(visionRef.current, { autoAlpha: 1, y: 0, clearProps: "all" });
+      gsap.set(missionRef.current, { autoAlpha: 1, y: 0, clearProps: "all" });
+    });
 
-    tl.to({}, { duration: 0.5 })
-      .to(missionRef.current, { 
-        opacity: 0, 
-        y: -30, 
-        duration: 1,
-        ease: "power2.inOut",
-        onComplete: () => gsap.set(missionRef.current, { visibility: 'hidden' }),
-        onReverseComplete: () => gsap.set(missionRef.current, { visibility: 'visible' })
-      })
-      .to(visionRef.current, { 
-        visibility: 'visible',
-        opacity: 1, 
-        y: 0, 
-        duration: 1,
-        ease: "power2.out"
-      }, "-=0.3")
-      .to({}, { duration: 0.5 });
+    return () => mm.revert();
   }, { scope: containerRef });
 
   // ANIMATION: Why HTL Section List
@@ -379,7 +390,12 @@ const About = () => {
         </div>
       </SectionLayout>
 
-      <SectionLayout ref={sectorsSectionRef} className="sectors-section" containerClassName="flex flex-col md:flex-row items-center">
+      <SectionLayout 
+        ref={sectorsSectionRef} 
+        className="sectors-section" 
+        fullWidth={true} 
+        containerClassName="sectors-container"
+      >
         <div className="sectors-left">
           <img src="/images/AboutUs/Sector%20section.png" alt="Biopharma Sector" />
         </div>

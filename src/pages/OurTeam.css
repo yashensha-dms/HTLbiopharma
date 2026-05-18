@@ -20,7 +20,7 @@
 
 .leadership-section {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: auto;
   min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
@@ -80,7 +80,7 @@
 /* Founders Section */
 .founders-section {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: auto;
   min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
@@ -203,7 +203,7 @@
 /* CEO Section */
 .ceo-section {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: auto;
   min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
@@ -287,7 +287,7 @@
 /* Management Section (Static Grid) */
 .management-static-section {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: auto;
   min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
@@ -351,8 +351,10 @@
 /* CTA Section */
 .team-cta-section {
   width: 100%;
-  height: 100vh;
+  height: auto;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
   background-color: #0a0a0a;
   color: #ffffff;
 }
