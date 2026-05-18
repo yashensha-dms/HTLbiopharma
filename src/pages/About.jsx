@@ -5,8 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Link } from 'react-router-dom';
 import SubPageHero from '../components/Sections/SubPageHero';
-import ValueCard from '../components/Cards/ValueCard';
+import ScrollSwapSection from '../components/Sections/ScrollSwapSection';
 import SectionLayout from '../components/Layout/SectionLayout';
+import TitleGroup from '../components/UI/TitleGroup';
 import './About.css';
 
 // Register GSAP ScrollTrigger plugin
@@ -20,7 +21,6 @@ const About = () => {
   const whySectionRef = useRef(null);
   const sustainabilitySectionRef = useRef(null);
   const verticalIntroRef = useRef(null);
-  const valuesSectionRef = useRef(null);
   const sectorsSectionRef = useRef(null);
 
   const whyItems = [
@@ -66,6 +66,26 @@ const About = () => {
     { name: "Cosmetic & Personal Care", path: "/cosmetics" },
     { name: "Industrial Application", path: "/industrial-appliances" }
   ];
+
+  // Handle layout-settle ScrollTrigger refresh
+  useGSAP(() => {
+    const refreshTrigger = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener('load', refreshTrigger);
+    
+    const timer1 = setTimeout(refreshTrigger, 200);
+    const timer2 = setTimeout(refreshTrigger, 1000);
+    const timer3 = setTimeout(refreshTrigger, 2000);
+
+    return () => {
+      window.removeEventListener('load', refreshTrigger);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  });
 
   // ANIMATION: Global Background Transition
   useGSAP(() => {
@@ -217,26 +237,7 @@ const About = () => {
     );
   }, { scope: verticalIntroRef });
 
-  // ANIMATION: Values Section
-  useGSAP(() => {
-    const cards = gsap.utils.toArray('.value-card-wrapper');
-    
-    gsap.fromTo(cards, 
-      { opacity: 0, y: 40 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.8, 
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: valuesSectionRef.current,
-          start: 'top 60%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
-  }, { scope: valuesSectionRef });
+  // Values Section uses ScrollSwapSection which manages its own presentation and layout
 
   // ANIMATION: Sectors Section
   useGSAP(() => {
@@ -300,11 +301,10 @@ const About = () => {
         <div className="mission-vision-slide" ref={missionRef}>
           <div className="mission-vision-container mission-slide-layout">
             <div className="mission-vision-content">
-              <h4 className="section-label">MISSION</h4>
+              <span className="section-label">MISSION</span>
               <p className="section-text">
-                To be an eminent force in turnkey engineering services across India and
-                the global, delivering the Highest Quality Standards through
-                unwavering commitment to our core Values & Integrity
+                To be an eminent force in turnkey engineering services across
+                India and the global, delivering the <span className="highlight">Highest Quality Standards</span> through unwavering commitment to our core <span className="highlight">Values & Integrity</span>.
               </p>
             </div>
             <div className="mission-vision-image">
@@ -316,11 +316,9 @@ const About = () => {
         <div className="mission-vision-slide vision-slide-absolute" ref={visionRef}>
           <div className="mission-vision-container vision-slide-layout">
             <div className="mission-vision-content">
-              <h4 className="section-label">VISION</h4>
+              <span className="section-label">VISION</span>
               <p className="section-text">
-                To revolutionise BioPharma infrastructure through Intelligent
-                Value Engineering ensuring that every project we deliver is
-                Optimized, Compliant & Future-ready.
+                To revolutionise BioPharma infrastructure through <span className="highlight">Intelligent Value Engineering</span> ensuring that every project we deliver is <strong className="text-black">Optimized, Compliant & Future-ready</strong>.
               </p>
             </div>
             <div className="mission-vision-image">
@@ -330,18 +328,31 @@ const About = () => {
         </div>
       </div>
 
-      <SectionLayout ref={whySectionRef} className="why-htl-section">
-        <h2 className="why-htl-title">WHY <span>HTL BIOPHARMA</span>?</h2>
-        <div className="why-list">
-          {whyItems.map((item, index) => (
-            <div key={index} className="why-item">
-              <p className="why-text">{item.text}</p>
-              <div className="why-line-wrapper">
-                <div className="why-line"></div>
-                <div className="why-dot"></div>
-              </div>
-            </div>
-          ))}
+      <SectionLayout ref={whySectionRef} className="why-htl-section" fullWidth={true}>
+        <div className="why-htl-container">
+          <TitleGroup 
+            title="Why HTL BioPharma?" 
+            subtitle="Our Strengths" 
+            dark={true}
+            className="!mb-16"
+          />
+          <div className="why-list">
+            {whyItems.map((item, index) => {
+              const displayIndex = String(index + 1).padStart(2, '0');
+              return (
+                <div key={index} className="why-item">
+                  <div className="why-text-wrapper">
+                    <span className="why-number">{displayIndex}</span>
+                    <p className="why-text">{item.text}</p>
+                  </div>
+                  <div className="why-line-wrapper">
+                    <div className="why-line"></div>
+                    <div className="why-dot"></div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </SectionLayout>
 
@@ -379,16 +390,11 @@ const About = () => {
         </div>
       </SectionLayout>
 
-      <SectionLayout ref={valuesSectionRef} className="values-section">
-        <h2 className="values-title">OUR VALUES</h2>
-        <div className="values-grid">
-          {valuesData.map((value, index) => (
-            <div key={index} className="value-card-wrapper">
-              <ValueCard title={value.title} description={value.description} />
-            </div>
-          ))}
-        </div>
-      </SectionLayout>
+      <ScrollSwapSection 
+        title="Our Core Values" 
+        subtitle="Our Values" 
+        items={valuesData} 
+      />
 
       <SectionLayout 
         ref={sectorsSectionRef} 

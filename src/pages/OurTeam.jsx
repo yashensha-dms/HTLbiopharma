@@ -147,6 +147,35 @@ const OurTeam = () => {
   ];
 
   useGSAP(() => {
+    // LAYOUT STABILIZER: Recalculate ScrollTrigger on image loads and resizing
+    const images = containerRef.current?.querySelectorAll('img');
+    let loadedCount = 0;
+
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount >= images.length) {
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      }
+    };
+
+    if (images && images.length > 0) {
+      images.forEach(img => {
+        if (img.complete) {
+          handleImageLoad();
+        } else {
+          img.addEventListener('load', handleImageLoad);
+          img.addEventListener('error', handleImageLoad);
+        }
+      });
+    }
+
+    // Refresh on mount, load, and resize
+    ScrollTrigger.refresh();
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+    window.addEventListener('resize', () => ScrollTrigger.refresh());
+
     // Leadership Section Animation
     const text = leadershipRef.current.querySelector('.leadership-text');
     gsap.fromTo(text, 
@@ -195,11 +224,11 @@ const OurTeam = () => {
 
     ceoTl.fromTo(ceoTextItems, 
       { opacity: 0, x: -30 },
-      { opacity: 1, x: 0, duration: 1, stagger: 0.3, ease: "power3.out" }
+      { opacity: 1, x: 0, duration: 1, stagger: 0.2, ease: "power3.out" }
     ).fromTo(ceoCard, 
       { opacity: 0, x: 30 },
       { opacity: 1, x: 0, duration: 1, ease: "power3.out" },
-      "-=0.5"
+      0
     );
 
     // Management Reveal Animation

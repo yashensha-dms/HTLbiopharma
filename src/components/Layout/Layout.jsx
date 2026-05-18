@@ -7,6 +7,8 @@ import ContactForm from '../UI/ContactForm';
 import ScrollToTopButton from '../UI/ScrollToTopButton';
 import { FormProvider, useForm } from '../../context/FormContext';
 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 const LayoutContent = ({ children }) => {
   const { isContactOpen, closeContact } = useForm();
   const { pathname } = useLocation();
@@ -21,6 +23,13 @@ const LayoutContent = ({ children }) => {
     } else {
       window.scrollTo(0, 0);
     }
+
+    // Recalculate ScrollTrigger triggers for the new page layout
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => clearTimeout(refreshTimer);
   }, [pathname]);
 
   return (

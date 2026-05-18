@@ -2,95 +2,134 @@
 .subpage-hero {
   position: relative;
   width: 100%;
-  height: calc(100vh - 64px);
+  height: auto;
   min-height: calc(100vh - 64px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background-color: #000000;
+  z-index: 1;
+}
+
+.subpage-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-}
-
-@media (max-width: 1024px) {
-  .subpage-hero {
-    height: calc(100vh - 70px);
-    min-height: calc(100vh - 70px);
-  }
-}
-
-@media (max-width: 480px) {
-  .subpage-hero {
-    height: calc(100vh - 65px);
-    min-height: calc(100vh - 65px);
-  }
+  z-index: 1;
+  pointer-events: none;
 }
 
 .subpage-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  /* Subtle dark gradient at the bottom to ensure text readability */
+  /* Dark rich gradient transition from top to bottom */
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 40%,
-    rgba(0, 0, 0, 0.5) 70%,
-    rgba(0, 0, 0, 0.8) 100%
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.9) 100%
   );
   display: flex;
   align-items: flex-end;
-  padding-bottom: 80px; /* Space from bottom */
+  padding-bottom: 120px; /* Luxurious bottom spacing */
   box-sizing: border-box;
+  z-index: 2;
 }
 
 .subpage-hero-content {
-  max-width: 900px;
+  max-width: 1000px;
   width: 100%;
+  position: relative;
+  z-index: 3;
 }
 
 .subpage-hero-title {
   color: #ffffff;
   font-family: var(--font-geist), sans-serif;
-  font-size: 56px;
-  line-height: 1.1;
-  font-weight: 400;
-  letter-spacing: -2.16px;
-  margin-bottom: 16px;
+  font-size: 64px;
+  line-height: 1.05;
+  font-weight: 300; /* Ultra-thin editorial layout */
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .subpage-hero-subtitle {
   color: #ffffff;
   font-family: var(--font-geist), sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
-  letter-spacing: -0.8px;
+  letter-spacing: 0.05em;
   opacity: 0.95;
+  display: flex;
+  align-items: center;
+}
+
+.subtitle-decor {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background-color: #ff3b3b;
+  margin-right: 16px;
+}
+
+.subtitle-text {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.75); /* Muted white for luxury editorial look */
 }
 
 /* Responsive Overrides */
 @media (max-width: 1024px) {
+  .subpage-hero {
+    min-height: calc(100vh - 70px);
+  }
   .subpage-hero-overlay {
-    padding: 60px 40px;
+    padding: 80px 40px;
   }
   .subpage-hero-title {
-    font-size: 42px;
+    font-size: 48px;
     letter-spacing: -1.5px;
   }
   .subpage-hero-subtitle {
-    font-size: 20px;
+    font-size: 18px;
+  }
+  .subtitle-decor {
+    width: 24px;
+    margin-right: 12px;
   }
 }
 
 @media (max-width: 480px) {
+  .subpage-hero {
+    min-height: calc(100vh - 65px);
+  }
   .subpage-hero-overlay {
-    padding: 40px 20px;
+    padding: 60px 20px;
   }
   .subpage-hero-title {
-    font-size: 32px;
+    font-size: 36px;
     letter-spacing: -1px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    line-height: 1.1;
   }
-  .subpage-hero-subtitle {
-    font-size: 18px;
-    line-height: 1.4;
+  .subtitle-text {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+  .subtitle-decor {
+    width: 20px;
+    margin-right: 10px;
   }
 }

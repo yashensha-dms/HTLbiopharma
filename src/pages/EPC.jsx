@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import SubPageHero from '../components/Sections/SubPageHero';
 import ScrollSwapSection from '../components/Sections/ScrollSwapSection';
 import SectionLayout from '../components/Layout/SectionLayout';
+import TitleGroup from '../components/UI/TitleGroup';
 import './EPC.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -272,20 +273,7 @@ const EPC = () => {
       );
     }
 
-    // Global Scroll Snapping for sections
-    const sectionsCount = gsap.utils.toArray('section').length + 1; // +1 for the hero
-    
-    ScrollTrigger.create({
-      trigger: ".epc-page",
-      start: "top top",
-      end: "bottom bottom",
-      snap: {
-        snapTo: 1 / (sectionsCount - 1),
-        duration: { min: 0.2, max: 0.8 },
-        delay: 0.1,
-        ease: "power2.inOut"
-      }
-    });
+
 
     // Refresh after layout settles
     const refreshTrigger = () => {
@@ -482,16 +470,13 @@ const EPC = () => {
       </section>
 
       <ScrollSwapSection 
-        title="Integrated EPC <br/> Excellence" 
+        title="Integrated EPC Excellence" 
         subtitle="Why Partner with HTL?" 
         items={epcExcellenceItems} 
       />
 
-      <SectionLayout ref={disciplineRef} className="epc-discipline-section">
-        <div className="mb-16">
-          <h4 className="discipline-label text-xs uppercase tracking-[0.4em] text-gray-400 mb-2">VARIOUS DISCIPLINE</h4>
-          <div className="w-12 h-[2px] bg-brand-red"></div>
-        </div>
+      <SectionLayout ref={disciplineRef} className="epc-discipline-section" fullWidth={true}>
+        <TitleGroup title="Engineering Disciplines" subtitle="Various Discipline" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10">
           {[
@@ -510,15 +495,12 @@ const EPC = () => {
             "Laboratory"
           ].map((item, idx) => (
             <div key={idx} className="discipline-item group">
-              <div className="flex items-center justify-between py-4 border-b border-gray-100 group-hover:border-brand-red/30 transition-all duration-500 cursor-pointer">
-                <span className="text-2xl font-light text-gray-800 group-hover:text-gray-900 group-hover:translate-x-2 transition-all duration-500">
+              <div className="flex items-center py-4 border-b border-gray-100 group-hover:border-brand-red/30 transition-all duration-500 cursor-default">
+                {/* Left Accent Dash */}
+                <div className="w-0 group-hover:w-6 h-[1px] bg-brand-red opacity-0 group-hover:opacity-100 transition-all duration-500 mr-0 group-hover:mr-4"></div>
+                <span className="text-2xl font-light text-gray-800 group-hover:text-gray-900 transition-all duration-500">
                   {item}
                 </span>
-                <div className="opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-500">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#ff2b2b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
               </div>
             </div>
           ))}

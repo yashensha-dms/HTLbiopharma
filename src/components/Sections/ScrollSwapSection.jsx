@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import SectionLayout from '../Layout/SectionLayout';
 import ValueCard from '../Cards/ValueCard';
+import TitleGroup from '../UI/TitleGroup';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,24 +69,7 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
       fullWidth={true}
     >
       {/* Header */}
-      <div className="mb-10">
-        {subtitle && (
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-[1px] bg-brand-red"></div>
-            <h4 className="text-brand-red font-bold tracking-[0.4em] text-[9px] uppercase">
-              {subtitle}
-            </h4>
-          </div>
-        )}
-        <h2 className="text-4xl md:text-5xl font-light text-gray-900 leading-tight tracking-tight">
-          {title.split('<br/>').map((line, i) => (
-            <React.Fragment key={i}>
-              {line}
-              {i < title.split('<br/>').length - 1 && <br />}
-            </React.Fragment>
-          ))}
-        </h2>
-      </div>
+      <TitleGroup title={title} subtitle={subtitle} />
 
       {/* Card Area */}
       {!hasMoreThanTwoRows ? (

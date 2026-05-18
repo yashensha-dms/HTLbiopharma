@@ -60,7 +60,7 @@ const Timeline = () => {
         <div className="container-custom flex justify-between relative">
           
           {/* Left Side: Fixed Years and Images */}
-          <div ref={leftRef} className="w-1/3 h-screen flex flex-col justify-center sticky top-0">
+          <div ref={leftRef} className="w-1/3 h-screen flex flex-col justify-center">
             <div className="flex items-center gap-20">
               {/* Years Column */}
               <div className="flex flex-col space-y-6">
