@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import './ApproachFlow.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -8,28 +9,42 @@ gsap.registerPlugin(ScrollTrigger);
 const ApproachFlow = () => {
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      const elements = gsap.utils.toArray('.task-card, .phase-title, .validation-sidebar, .handover-btn');
-      
-      elements.forEach((el, i) => {
-        gsap.from(el, {
-          scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-          y: 40,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          delay: (i % 5) * 0.1
-        });
+  useGSAP(() => {
+    const elements = gsap.utils.toArray('.task-card, .phase-title, .validation-sidebar, .handover-btn');
+    
+    elements.forEach((el, i) => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        delay: (i % 5) * 0.1
       });
-    }, containerRef);
+    });
 
-    return () => ctx.revert();
-  }, []);
+    const handleResizeOrLoad = () => {
+      ScrollTrigger.refresh();
+    };
+
+    // Safe delayed refresh on mount to let all DOM elements settle
+    const initTimeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    window.addEventListener('load', handleResizeOrLoad);
+    window.addEventListener('resize', handleResizeOrLoad);
+
+    return () => {
+      clearTimeout(initTimeout);
+      window.removeEventListener('load', handleResizeOrLoad);
+      window.removeEventListener('resize', handleResizeOrLoad);
+    };
+  }, { scope: containerRef });
 
   return (
     <section className="approach-flow-section" ref={containerRef}>

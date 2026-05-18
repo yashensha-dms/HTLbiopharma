@@ -171,10 +171,17 @@ const OurTeam = () => {
       });
     }
 
-    // Refresh on mount, load, and resize
-    ScrollTrigger.refresh();
-    window.addEventListener('load', () => ScrollTrigger.refresh());
-    window.addEventListener('resize', () => ScrollTrigger.refresh());
+    const handleResizeOrLoad = () => {
+      ScrollTrigger.refresh();
+    };
+
+    // Safe delayed refresh on mount to let sibling components register first
+    const initTimeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    window.addEventListener('load', handleResizeOrLoad);
+    window.addEventListener('resize', handleResizeOrLoad);
 
     // Leadership Section Animation
     const text = leadershipRef.current.querySelector('.leadership-text');
@@ -267,6 +274,18 @@ const OurTeam = () => {
         }
       }
     );
+
+    return () => {
+      clearTimeout(initTimeout);
+      if (images) {
+        images.forEach(img => {
+          img.removeEventListener('load', handleImageLoad);
+          img.removeEventListener('error', handleImageLoad);
+        });
+      }
+      window.removeEventListener('load', handleResizeOrLoad);
+      window.removeEventListener('resize', handleResizeOrLoad);
+    };
   }, { scope: containerRef });
 
   return (

@@ -272,19 +272,52 @@ const EPC = () => {
         }
       );
     }
+    // LAYOUT STABILIZER: Recalculate ScrollTrigger on image loads and resizing
+    const images = containerRef.current?.querySelectorAll('img');
+    let loadedCount = 0;
 
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount >= images.length) {
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      }
+    };
 
+    if (images && images.length > 0) {
+      images.forEach(img => {
+        if (img.complete) {
+          handleImageLoad();
+        } else {
+          img.addEventListener('load', handleImageLoad);
+          img.addEventListener('error', handleImageLoad);
+        }
+      });
+    }
 
-    // Refresh after layout settles
-    const refreshTrigger = () => {
+    const handleResizeOrLoad = () => {
       ScrollTrigger.refresh();
     };
 
-    window.addEventListener('load', refreshTrigger);
-    setTimeout(refreshTrigger, 1000);
+    // Safe delayed refresh on mount to let sibling components (ScrollSwapSection etc.) register first
+    const initTimeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    window.addEventListener('load', handleResizeOrLoad);
+    window.addEventListener('resize', handleResizeOrLoad);
 
     return () => {
-      window.removeEventListener('load', refreshTrigger);
+      clearTimeout(initTimeout);
+      if (images) {
+        images.forEach(img => {
+          img.removeEventListener('load', handleImageLoad);
+          img.removeEventListener('error', handleImageLoad);
+        });
+      }
+      window.removeEventListener('load', handleResizeOrLoad);
+      window.removeEventListener('resize', handleResizeOrLoad);
     };
   }, { scope: containerRef });
 

@@ -48,15 +48,16 @@
   z-index: 10;
   text-align: center;
   color: white;
-  max-width: 1000px;
+  max-width: 1300px; /* Increased to allow titles to span 2 lines cleanly */
   padding: 0 24px;
+  width: 100%;
 }
 
 .inner-hero-title {
-  font-size: 3.5rem;
+  font-size: 3rem; /* Adjusted to 3rem as requested */
   font-weight: 500;
   margin-bottom: 24px;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
@@ -65,7 +66,7 @@
   font-weight: 300;
   color: #f1f5f9;
   line-height: 1.6;
-  max-width: 800px;
+  max-width: 900px; /* Proportional increase to match the title width */
   margin: 0 auto;
 }
 
