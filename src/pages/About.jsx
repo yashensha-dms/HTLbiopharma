@@ -367,7 +367,7 @@ const About = () => {
       <section 
         className="sustainability-section" 
         ref={sustainabilitySectionRef}
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/sustainability/Sustainability- Header.jpg)` }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/sustainability/Sustainability-Header.jpg)` }}
       >
         <div className="sustainability-overlay"></div>
         <div className="sustainability-content">

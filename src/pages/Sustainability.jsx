@@ -128,7 +128,7 @@ const Sustainability = () => {
       <SubPageHero 
         title="Engineering Sustainable Pharmaceutical Infrastructure"
         subtitle="From engineering to delivery, optimising energy, water, waste, and carbon while maintaining uncompromising regulatory compliance."
-        backgroundImage={`${import.meta.env.BASE_URL}images/sustainability/Sustainability- Header.jpg`}
+        backgroundImage={`${import.meta.env.BASE_URL}images/sustainability/Sustainability-Header.jpg`}
       />
 
       <SectionLayout ref={contentSectionRef} className="sus-content-section" fullWidth={true}>
