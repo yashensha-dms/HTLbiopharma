@@ -66,8 +66,8 @@ const Pharmaceuticals = () => {
     <SectorPageLayout
       heroTitle={<>Engineering High-Performance<br />Pharmaceutical Infrastructure</>}
       heroSubtitle="Facilities engineered, built, and qualified to global standards for safe, efficient, and scalable drug production."
-      heroBgImage="/images/Sector%20pages/ALL%20SECTOR%20HEADER%20.png"
-      introImage="/images/Sector%20pages/Pharmaceuticals/Screenshot%202026-05-04%20at%201.22.35%E2%80%AFPM.png"
+      heroBgImage="/images/sectors/header.png"
+      introImage="/images/sectors/pharmaceuticals-intro.png"
       introParagraphs={introParagraphs}
       subSegmentsTitle="SUB SEGMENTS"
       subSegmentsSubtitle="PHARMACEUTICALS"

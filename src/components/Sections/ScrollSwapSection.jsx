@@ -19,46 +19,51 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
   useGSAP(() => {
     if (!hasMoreThanTwoRows) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 64px",
-        end: "+=150%", // Shorter pin distance for better UX
-        pin: true,
-        scrub: 1, // Tighter scrub for better Lenis integration
-        anticipatePin: 1
-      }
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 64px",
+          end: "+=150%", // Shorter pin distance for better UX
+          pin: true,
+          scrub: 1, // Tighter scrub for better Lenis integration
+          anticipatePin: 1
+        }
+      });
+
+      const group1Cards = group1Ref.current.querySelectorAll('.swap-card-wrapper');
+      const group2Cards = group2Ref.current.querySelectorAll('.swap-card-wrapper');
+
+      // Initial state setup to avoid FOUC or scrubbing issues
+      gsap.set(group1Ref.current, { visibility: 'visible', opacity: 1, pointerEvents: 'auto' });
+      gsap.set(group2Ref.current, { visibility: 'hidden', opacity: 0, pointerEvents: 'none' });
+
+      tl.fromTo(group1Cards, 
+        { y: 0, opacity: 1 },
+        {
+          y: -40,
+          opacity: 0,
+          stagger: 0.05,
+          duration: 1,
+          ease: "power2.inOut",
+        })
+        .to(group1Ref.current, { autoAlpha: 0, duration: 0.01 })
+        .to(group2Ref.current, { autoAlpha: 1, duration: 0.01 })
+        .fromTo(group2Cards, 
+          { y: 40, opacity: 0 },
+          { 
+            y: 0, 
+            opacity: 1, 
+            stagger: 0.05,
+            duration: 1, 
+            ease: "power2.out"
+          }
+        );
     });
 
-    const group1Cards = group1Ref.current.querySelectorAll('.swap-card-wrapper');
-    const group2Cards = group2Ref.current.querySelectorAll('.swap-card-wrapper');
-
-    // Initial state setup to avoid FOUC or scrubbing issues
-    gsap.set(group1Ref.current, { visibility: 'visible', opacity: 1, pointerEvents: 'auto' });
-    gsap.set(group2Ref.current, { visibility: 'hidden', opacity: 0, pointerEvents: 'none' });
-
-    tl.fromTo(group1Cards, 
-      { y: 0, opacity: 1 },
-      {
-        y: -40,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 1,
-        ease: "power2.inOut",
-      })
-      .to(group1Ref.current, { autoAlpha: 0, duration: 0.01 })
-      .to(group2Ref.current, { autoAlpha: 1, duration: 0.01 })
-      .fromTo(group2Cards, 
-        { y: 40, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          stagger: 0.05,
-          duration: 1, 
-          ease: "power2.out"
-        }
-      );
-
+    return () => mm.revert();
   }, { scope: sectionRef });
 
   return (
@@ -97,7 +102,7 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
           {/* Group 2 - Absolute overlaid on Group 1 */}
           <div 
             ref={group2Ref}
-            className="absolute top-0 left-0 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr opacity-0 pointer-events-none z-20"
+            className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr z-20 mt-6 lg:mt-0 lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full lg:opacity-0 lg:pointer-events-none"
           >
             {items.slice(6, 12).map((item, idx) => (
               <div key={idx} className="swap-card-wrapper h-full">

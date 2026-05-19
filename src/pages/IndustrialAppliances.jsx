@@ -66,8 +66,8 @@ const IndustrialAppliances = () => {
     <SectorPageLayout
       heroTitle={<>Delivering High-Performance Infrastructure for<br />Mission Critical Industrial Applications</>}
       heroSubtitle="Robust engineering solutions for complex, controlled environment manufacturing infrastructure."
-      heroBgImage="/images/Sector%20pages/ALL%20SECTOR%20HEADER%20.png"
-      introImage="/images/Sector%20pages/Industrial%20Appliances/Screenshot%202026-05-04%20at%202.55.59%E2%80%AFPM.png"
+      heroBgImage="/images/sectors/header.png"
+      introImage="/images/sectors/industrial-appliances-intro.png"
       introParagraphs={introParagraphs}
       subSegmentsTitle="SUB SEGMENTS"
       subSegmentsSubtitle="INDUSTRIAL APPLIANCES"

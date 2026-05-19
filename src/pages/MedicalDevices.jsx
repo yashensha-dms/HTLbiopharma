@@ -43,8 +43,8 @@ const MedicalDevices = () => {
     <SectorPageLayout
       heroTitle={<>Engineering Precision Cleanroom Infrastructure for<br />Medical Device Manufacturing</>}
       heroSubtitle="ISO-compliant controlled environments engineered, built, and qualified for sterile and non-sterile medical device manufacturing, diagnostic production, and high-precision healthcare technologies."
-      heroBgImage="/images/Sector%20pages/ALL%20SECTOR%20HEADER%20.png"
-      introImage="/images/Sector%20pages/Medical%20devices/Screenshot%202026-05-04%20at%202.52.10%E2%80%AFPM.png"
+      heroBgImage="/images/sectors/header.png"
+      introImage="/images/sectors/medical-devices-intro.png"
       introParagraphs={introParagraphs}
       subSegmentsTitle="SUB SEGMENTS"
       subSegmentsSubtitle=""

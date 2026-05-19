@@ -46,8 +46,8 @@ const Biopharmaceuticals = () => {
     <SectorPageLayout
       heroTitle={<>Engineering Integrated<br />Biopharmaceutical Facilities</>}
       heroSubtitle="Designed for biologics, vaccines, and plasma manufacturing under global regulatory standards."
-      heroBgImage="/images/Sector%20pages/ALL%20SECTOR%20HEADER%20.png"
-      introImage="/images/Sector%20pages/Biopharmaceuticals/Screenshot%202026-05-04%20at%202.51.51%E2%80%AFPM.png"
+      heroBgImage="/images/sectors/header.png"
+      introImage="/images/sectors/biopharmaceuticals-intro.png"
       introParagraphs={introParagraphs}
       subSegmentsTitle="SUB SEGMENTS"
       subSegmentsSubtitle="BIOPHARMACEUTICALS"
