@@ -301,7 +301,7 @@ const OurTeam = () => {
       <SubPageHero 
         title="Our Team"
         subtitle="A glimpse into our work"
-        backgroundImage="/images/banner/updated/Our%20Team.webp"
+        backgroundImage="/images/Our%20Team/Header.jpeg"
       />
       
       <section className="leadership-section" ref={leadershipRef}>
