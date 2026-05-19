@@ -51,8 +51,8 @@ const Footer = () => {
       <div className="bottom-section">
         <div className="left">
           <img
-            src="/images/Logo/Footer Image Block.svg"
-            height="56px"
+            src="/images/NEW LOGOS/FOOTERLOGO.svg"
+            style={{ height: '48px', width: 'auto', display: 'block' }}
             alt="logo footer"
           />
           <object
@@ -122,7 +122,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="copyright-link"
-              > DMS</a
+              > DMSG</a
             >
           </p>
         </div>

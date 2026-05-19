@@ -44,7 +44,7 @@ const Hero = ({
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/images/Home Video.webm" type="video/webm" />
+          <source src="/images/Home page- Header.mp4" type="video/mp4" />
         </video>
         {/* Robust Overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent z-1" />
