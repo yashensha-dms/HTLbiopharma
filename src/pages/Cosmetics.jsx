@@ -1,7 +1,14 @@
 import React from 'react';
 import SectorPageLayout from '../components/Layout/SectorPageLayout';
+import useSEO from '../hooks/useSEO';
 
 const Cosmetics = () => {
+  useSEO({
+    title: 'Cosmetic & Personal Care Cleanroom Engineering',
+    description: 'Designing contamination-controlled cosmetic manufacturing plants as per international standards. Scalable personal care formulation spaces with premium utility controls.',
+    keywords: 'cosmetic plant layout, personal care manufacturing design, contamination controlled formulation rooms'
+  });
+
   const introParagraphs = [
     "Cosmeceuticals and medical aesthetics represent a strategic extension of HTL Biopharma's pharmaceutical and regulatory expertise.",
     "HTL Biopharma delivers precision-engineered manufacturing environments for cosmetics and personal care production, integrating hygienic process design with advanced automation systems. Our expertise enables single-window solutions across hygiene, process engineering, compliance, automation, and project management.",

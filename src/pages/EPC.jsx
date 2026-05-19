@@ -8,6 +8,8 @@ import SectionLayout from '../components/Layout/SectionLayout';
 import TitleGroup from '../components/UI/TitleGroup';
 import './EPC.css';
 
+import useSEO from '../hooks/useSEO';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const epcExcellenceItems = [
@@ -62,6 +64,12 @@ const epcExcellenceItems = [
 ];
 
 const EPC = () => {
+  useSEO({
+    title: 'Integrated EPC Solutions & Cleanroom Turnkey Projects',
+    description: 'From initial design concept to ultimate facility handover, HTL BioPharma delivers advanced EPC turnkey projects, HVAC integration, validation, and full regulatory compliance.',
+    keywords: 'EPC turnkey projects, cleanroom validation, sterile HVAC engineering, biopharmaceutical facility design, GMP compliance'
+  });
+
   const containerRef = useRef(null);
   const introRef = useRef(null);
   const valueRef = useRef(null);

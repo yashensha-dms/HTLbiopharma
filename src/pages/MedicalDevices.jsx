@@ -1,7 +1,14 @@
 import React from 'react';
 import SectorPageLayout from '../components/Layout/SectorPageLayout';
+import useSEO from '../hooks/useSEO';
 
 const MedicalDevices = () => {
+  useSEO({
+    title: 'Medical Device Cleanroom Build & ISO Validation',
+    description: 'State-of-the-art controlled environments, cleanrooms, and high-purity utilities optimized for orthopedic, cardiovascular, and diagnostic medical device assembly.',
+    keywords: 'medical device cleanroom, ISO 14644 compliance, diagnostic device assembly cleanrooms'
+  });
+
   const introParagraphs = [
     "HTL Biopharma delivers precision-engineered cleanroom environments and facility infrastructure for advanced medical device manufacturing. Our expertise spans ISO-classified cleanroom design, HVAC systems, and stringent particulate control to support production of implants, diagnostics, and precision healthcare technologies.",
     "We integrate validated utilities, contamination-controlled environments, and regulatory-compliant systems to meet global standards including ISO 13485 (QMS), USFDA 21 CFR Part 820, EU MDR, GMP, and other international requirements—ensuring consistent product quality, operational reliability, and compliance.",

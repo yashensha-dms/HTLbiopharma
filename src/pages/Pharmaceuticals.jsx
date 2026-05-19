@@ -1,7 +1,14 @@
 import React from 'react';
 import SectorPageLayout from '../components/Layout/SectorPageLayout';
+import useSEO from '../hooks/useSEO';
 
 const Pharmaceuticals = () => {
+  useSEO({
+    title: 'Pharmaceutical Facility EPC & GMP Cleanrooms',
+    description: 'Providing engineering, procurement, and construction for FDA/WHO compliant oral solid dosage, sterile injectables, and API facilities with robust environmental controls.',
+    keywords: 'OSD facility builders, sterile injectable cleanroom, API plant engineering, FDA WHO compliance, pharmaceutical construction'
+  });
+
   const introParagraphs = [
     "HTL Biopharma delivers precision-engineered pharmaceutical manufacturing environments through fully integrated EPC execution. From complex biologics processing plants to sterile formulation or API facilities, our engineering ensures compliance with global regulatory frameworks including GMP, FDA, EU, WHO, EMEA, UK MHRA, PIC/S, TGA, ANVISA, Schedule M or any other global / local regulatory requirements.",
     "Our multidisciplinary teams integrate Project Management, Regulatory expertise, and Process Knowhow with HVAC, Cleanrooms, Electrical, ELVS, BMS, Plant Automation, Utilities, Piping, and GMP drainage systems to deliver compliant, reliable, and optimised facilities.",

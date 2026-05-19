@@ -88,7 +88,15 @@ const TeamCard = ({ name, role, image, linkedinUrl }) => {
   );
 };
 
+import useSEO from '../hooks/useSEO';
+
 const OurTeam = () => {
+  useSEO({
+    title: 'Our Leadership & Technical Experts',
+    description: 'Meet the multidisciplinary team of engineers, technicians, and validation leaders at HTL BioPharma driving precision design, build, and delivery of compliant facilities.',
+    keywords: 'pharmaceutical facility builders, biotech engineering team, validation experts, HTL leadership'
+  });
+
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const containerRef = useRef(null);
   const leadershipRef = useRef(null);

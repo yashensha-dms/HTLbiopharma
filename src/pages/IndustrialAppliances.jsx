@@ -1,7 +1,14 @@
 import React from 'react';
 import SectorPageLayout from '../components/Layout/SectorPageLayout';
+import useSEO from '../hooks/useSEO';
 
 const IndustrialAppliances = () => {
+  useSEO({
+    title: 'Semiconductor & Advanced Tech Controlled Environments',
+    description: 'Contamination-controlled infrastructure and ultra-pure utilities for solar cells, microelectronics, and advanced industrial application environments.',
+    keywords: 'semiconductor cleanroom, solar cell facility builders, high-purity utility infrastructure'
+  });
+
   const introParagraphs = [
     "HTL Biopharma delivers robust engineering solutions as a trusted EPC partner, with proven capability to execute controlled environment infrastructure for critical and complex manufacturing applications requiring precision and high operational reliability.",
     "Our expertise includes large-scale HVAC and cleanroom systems integrated with customised BMS and supporting infrastructure such as utilities, hook-up services, gas distribution systems, piping, and electrical (LT, HT, ELVS). We deliver projects aligned with high engineering standards and strict safety norms.",

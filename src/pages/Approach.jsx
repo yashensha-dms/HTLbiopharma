@@ -1,8 +1,15 @@
 import React from 'react';
 import SubPageHero from '../components/Sections/SubPageHero';
 import ApproachFlow from '../components/Sections/ApproachFlow';
+import useSEO from '../hooks/useSEO';
 
 const Approach = () => {
+  useSEO({
+    title: 'Our Scientific Approach to Engineering Excellence',
+    description: 'HTL BioPharma\'s proven scientific approach integrates engineering precision, validation readiness, and regulatory compliance to accelerate facility launch.',
+    keywords: 'scientific approach engineering, validation design, pharmaceutical facility blueprint'
+  });
+
   return (
     <div className="approach-page">
       <SubPageHero 

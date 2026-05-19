@@ -10,10 +10,18 @@ import SectionLayout from '../components/Layout/SectionLayout';
 import TitleGroup from '../components/UI/TitleGroup';
 import './About.css';
 
+import useSEO from '../hooks/useSEO';
+
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  useSEO({
+    title: 'About HTL BioPharma | Our Engineering Heritage & Leadership',
+    description: 'Discover HTL BioPharma\'s heritage, specialized leadership, and single-window mission to advance regulated lifecycle infrastructure for life sciences, cosmetics, and medical devices.',
+    keywords: 'HTL BioPharma legacy, biopharma engineering leadership, GMP facility partner, turnkey cleanroom experts'
+  });
+
   const pageRef = useRef(null);
   const containerRef = useRef(null);
   const missionRef = useRef(null);

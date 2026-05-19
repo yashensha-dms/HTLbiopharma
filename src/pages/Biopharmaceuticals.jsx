@@ -1,7 +1,14 @@
 import React from 'react';
 import SectorPageLayout from '../components/Layout/SectorPageLayout';
+import useSEO from '../hooks/useSEO';
 
 const Biopharmaceuticals = () => {
+  useSEO({
+    title: 'Biopharmaceuticals & Life Science Infrastructure',
+    description: 'Advanced facility design and EPC turnkey engineering for monoclonal antibodies, vaccines, cell & gene therapies, and state-of-the-art biologics research hubs.',
+    keywords: 'biologics facility engineering, vaccine cleanroom build, biotech labs design, sterile biopharma solutions'
+  });
+
   const introParagraphs = [
     "HTL Biopharma delivers precision-engineered biopharmaceutical facilities through fully integrated EPC execution. From single-use (disposable) to stainless steel systems for mAbs, vaccines (human & animal), recombinant proteins, CGT, biosimilars, ADCs, and fermentation-based applications, we ensure compliance with GMP, FDA, EU, WHO, EMEA, UK MHRA, PIC/S, TGA, ANVISA, Schedule M, and global standards.",
     "Our teams integrate Project Management, Regulatory expertise, and Bioprocess knowhow with HVAC, Cleanrooms, Electrical, ELVS, BMS, Plant Automation, Utilities, Piping, and GMP drainage to deliver reliable, compliant, and optimised research and production facilities.",

@@ -38,7 +38,15 @@ const sectorsData = [
   }
 ];
 
+import useSEO from '../hooks/useSEO';
+
 const Home = () => {
+  useSEO({
+    title: 'Regulated Facility EPC & Turnkey Engineering',
+    description: 'HTL BioPharma is a leading single-window EPC turnkey engineering partner delivering sterile cleanrooms, dynamic HVAC systems, and sustainable facilities for the lifescientific industries.',
+    keywords: 'HTL BioPharma, pharmaceutical EPC, cleanroom design, life sciences facility, HVAC engineering, sterile utilities'
+  });
+
   return (
     <div className="flex flex-col">
       <Hero 

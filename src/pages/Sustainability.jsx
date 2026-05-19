@@ -8,9 +8,17 @@ import SectionLayout from '../components/Layout/SectionLayout';
 import CTA from '../components/Sections/CTA';
 import './Sustainability.css';
 
+import useSEO from '../hooks/useSEO';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Sustainability = () => {
+  useSEO({
+    title: 'Engineering Sustainable Infrastructure & Green Utilities',
+    description: 'Delivering environmentally responsible pharmaceutical and biotech infrastructure. We engineer optimized water recycling loops, ZLD, solar integration, and low-carbon operational footprint.',
+    keywords: 'sustainable pharma facility, green utility engineering, zero liquid discharge, solar utility integration, carbon reduction lifescientific'
+  });
+
   const containerRef = useRef(null);
   const contentSectionRef = useRef(null);
   const globeRef = useRef(null);
