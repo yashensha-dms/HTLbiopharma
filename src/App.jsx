@@ -17,7 +17,7 @@ import MedicalDevices from './pages/MedicalDevices';
 import Contact from './pages/Contact';
 import Sustainability from './pages/Sustainability';
 
-const basename = import.meta.env.DEV ? '/' : '/HTLbiopharma';
+const basename = '/';
 
 function App() {
   return (
