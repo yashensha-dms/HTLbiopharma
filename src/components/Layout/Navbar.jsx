@@ -14,6 +14,7 @@ const NavLink = ({ to, children, className = '', disabled, ...props }) => {
 const Navbar = () => {
   const [isDesktopExpanded, setIsDesktopExpanded] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileHamburgerActive, setIsMobileHamburgerActive] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const { pathname } = useLocation();
 
@@ -57,12 +58,49 @@ const Navbar = () => {
   useEffect(() => {
     setIsDesktopExpanded(false);
     setIsMobileMenuOpen(false);
+    setIsMobileHamburgerActive(false);
     setActiveMobileDropdown(null);
+    gsap.set("#mobileNavbar", { clearProps: "height" });
     if (menuToggle.current && !menuToggle.current.reversed()) {
       menuToggle.current.reverse();
     }
     if (window.lenis) window.lenis.start();
   }, [pathname]);
+
+  // GSAP animation for mobile menu entrance
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      gsap.fromTo(".mobile-menu", 
+        { opacity: 0, y: -10 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
+      );
+      gsap.fromTo(".mobile-dropdown", 
+        { opacity: 0, y: 15 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.4, 
+          stagger: 0.08, 
+          ease: "power2.out",
+          delay: 0.05 
+        }
+      );
+    }
+  }, [isMobileMenuOpen]);
+
+  // GSAP animation for mobile dropdown content links
+  useEffect(() => {
+    if (activeMobileDropdown !== null) {
+      const activeContent = document.querySelector(`.mobile-dropdown:nth-child(${activeMobileDropdown + 1}) .dropdown-content`);
+      if (activeContent) {
+        const links = activeContent.querySelectorAll('a');
+        gsap.fromTo(links,
+          { opacity: 0, x: -10 },
+          { opacity: 1, x: 0, duration: 0.35, stagger: 0.05, ease: "power2.out" }
+        );
+      }
+    }
+  }, [activeMobileDropdown]);
 
   const toggleDesktopNav = () => {
     const nextState = !isDesktopExpanded;
@@ -77,13 +115,34 @@ const Navbar = () => {
   };
 
   const toggleMobileNav = () => {
-    const nextState = !isMobileMenuOpen;
-    setIsMobileMenuOpen(nextState);
-    if (nextState) {
+    if (!isMobileMenuOpen) {
+      // Opening
+      setIsMobileMenuOpen(true);
+      setIsMobileHamburgerActive(true);
       if (window.lenis) window.lenis.stop();
+      
+      const startHeight = window.innerWidth <= 480 ? "65px" : "70px";
+      gsap.fromTo("#mobileNavbar", 
+        { height: startHeight },
+        { height: "100vh", duration: 0.45, ease: "power3.out" }
+      );
     } else {
+      // Closing
+      setIsMobileHamburgerActive(false);
       setActiveMobileDropdown(null);
-      if (window.lenis) window.lenis.start();
+      
+      const targetHeight = window.innerWidth <= 480 ? "65px" : "70px";
+      gsap.to("#mobileNavbar", {
+        height: targetHeight,
+        duration: 0.4,
+        ease: "power3.inOut",
+        onComplete: () => {
+          setIsMobileMenuOpen(false);
+          if (window.lenis) window.lenis.start();
+          // Clear GSAP inline height style so it doesn't lock sticky height
+          gsap.set("#mobileNavbar", { clearProps: "height" });
+        }
+      });
     }
   };
 
@@ -182,7 +241,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} id="mobileMenuToggle" onClick={toggleMobileNav}>
+          <div className={`mobile-menu-toggle ${isMobileHamburgerActive ? 'active' : ''}`} id="mobileMenuToggle" onClick={toggleMobileNav}>
             <svg
               width="32"
               height="32"
@@ -201,7 +260,9 @@ const Navbar = () => {
           <div className="mobile-dropdown">
             <button className={`dropdown-btn ${activeMobileDropdown === 0 ? 'active' : ''}`} onClick={() => toggleMobileDropdown(0)}>
               Company
-              <span className="arrow">&#9662;</span>
+              <svg className="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
             <div className={`dropdown-content ${activeMobileDropdown === 0 ? 'show' : ''}`}>
               <Link to="/about">About Us</Link>
@@ -215,7 +276,9 @@ const Navbar = () => {
           <div className="mobile-dropdown">
             <button className={`dropdown-btn ${activeMobileDropdown === 1 ? 'active' : ''}`} onClick={() => toggleMobileDropdown(1)}>
               Services
-              <span className="arrow">&#9662;</span>
+              <svg className="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
             <div className={`dropdown-content ${activeMobileDropdown === 1 ? 'show' : ''}`}>
               <Link to="/pharmaceuticals">Pharmaceuticals</Link>
@@ -229,7 +292,9 @@ const Navbar = () => {
           <div className="mobile-dropdown">
             <button className={`dropdown-btn ${activeMobileDropdown === 2 ? 'active' : ''}`} onClick={() => toggleMobileDropdown(2)}>
               Socials
-              <span className="arrow">&#9662;</span>
+              <svg className="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
             <div className={`dropdown-content ${activeMobileDropdown === 2 ? 'show' : ''}`}>
               <a
