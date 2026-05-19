@@ -19,7 +19,7 @@ const EPCExcellence = () => {
           </Paragraph>
 
           <div className="pt-4">
-            <a href="#" className="text-white uppercase tracking-widest text-sm border-b border-white pb-2 hover:text-brand-red hover:border-brand-red transition-colors">
+            <a href="/about" className="text-white uppercase tracking-widest text-sm border-b border-white pb-2 hover:text-brand-red hover:border-brand-red transition-colors">
               READ MORE
             </a>
           </div>
