@@ -1,33 +1,31 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useForm } from '../../context/FormContext';
 import { Paragraph } from '../UI/Typography';
 
 const Hero = ({ 
   title = "Engineering Infrastructure,\nDelivering Trust.", 
-  subtitle = "Delivering integrated MEP services, powering India’s Real Estate with Engineering, supply chain & management solutions." 
+  subtitle = null
 }) => {
   const container = useRef();
-  const { openContact } = useForm();
+  const navigate = useNavigate();
 
   useGSAP(() => {
-    gsap.from('.hero-content > *', {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'power3.out',
-    });
+    gsap.fromTo('.hero-content h1',
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+    );
 
-    gsap.from('.stat-item', {
-      opacity: 0,
-      y: 20,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power2.out',
-      delay: 1,
-    });
+    gsap.fromTo('.hero-btn-wrapper',
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: 'power3.out' }
+    );
+
+    gsap.fromTo('.stat-item',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out', delay: 1, clearProps: 'all' }
+    );
   }, { scope: container });
 
   return (
@@ -53,19 +51,24 @@ const Hero = ({
 
       {/* Hero Content */}
       <div className="relative z-10 h-full flex flex-col justify-center px-5 md:px-20 container-custom">
-        <div className="hero-content max-w-3xl">
+        <div className="hero-content max-w-5xl">
           <h1 className="text-4xl md:text-7xl font-normal leading-tight tracking-tight text-white mb-6 whitespace-pre-line">
             {title}
           </h1>
-          <Paragraph className="text-white/90 mb-10 max-w-2xl">
-            {subtitle}
-          </Paragraph>
-          <button 
-            onClick={openContact}
-            className="btn-primary"
-          >
-            Explore Capabilities
-          </button>
+          {subtitle && (
+            <Paragraph className="text-white/90 mb-10 max-w-2xl">
+              {subtitle}
+            </Paragraph>
+          )}
+          <div className="hero-btn-wrapper mt-8">
+            <button 
+              onClick={() => navigate('/about')}
+              className="btn-primary"
+              type="button"
+            >
+              Explore More
+            </button>
+          </div>
         </div>
       </div>
 

@@ -138,7 +138,7 @@ const Sustainability = () => {
             <div className="sus-globe-wrapper" ref={globeRef}>
               <div className="sus-globe-glow"></div>
               <img 
-                src={`${import.meta.env.BASE_URL}images/sustainability/vector.png`} 
+                src={`${import.meta.env.BASE_URL}images/sustainability/Vector.png`} 
                 alt="Sustainability Globe Vector" 
                 className="sus-globe-img"
               />

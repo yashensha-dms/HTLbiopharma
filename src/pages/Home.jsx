@@ -51,7 +51,6 @@ const Home = () => {
     <div className="flex flex-col">
       <Hero 
         title={"Enabling the World’s \nMost Regulated Industries."}
-        subtitle={"Read more about us"}
       />
       <IntroSection />
       <EPCExcellence />
