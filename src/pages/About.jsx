@@ -120,8 +120,8 @@ const About = () => {
           start: 'top top',
           end: '+=250%',
           pin: true,
+          pinType: 'transform',
           scrub: 1.5,
-          anticipatePin: 1,
         }
       });
 
@@ -316,7 +316,7 @@ const About = () => {
               </p>
             </div>
             <div className="mission-vision-image">
-              <img src="/images/AboutUs/Mission%20Victor.png" alt="Mission Target" />
+              <img src="/images/AboutUs/Vision%20Victor.png" alt="Mission Target" />
             </div>
           </div>
         </div>
@@ -330,7 +330,7 @@ const About = () => {
               </p>
             </div>
             <div className="mission-vision-image">
-              <img src="/images/AboutUs/Vision%20Victor.png" alt="Vision Lightbulb" />
+              <img src="/images/AboutUs/Mission%20Victor.png" alt="Vision Lightbulb" />
             </div>
           </div>
         </div>

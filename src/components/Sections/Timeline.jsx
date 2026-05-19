@@ -48,6 +48,7 @@ const Timeline = () => {
       start: 'top top',
       end: 'bottom bottom',
       pin: leftRef.current,
+      pinType: 'transform',
       pinSpacing: false,
     });
 

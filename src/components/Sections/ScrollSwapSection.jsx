@@ -28,8 +28,8 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
           start: "top 64px",
           end: "+=150%", // Shorter pin distance for better UX
           pin: true,
+          pinType: 'transform',
           scrub: 1, // Tighter scrub for better Lenis integration
-          anticipatePin: 1
         }
       });
 
@@ -46,18 +46,18 @@ const ScrollSwapSection = ({ title, subtitle, items }) => {
           y: -40,
           opacity: 0,
           stagger: 0.05,
-          duration: 1,
-          ease: "power2.inOut",
+          duration: 0.8,
+          ease: "power2.in",
         })
-        .to(group1Ref.current, { autoAlpha: 0, duration: 0.01 })
-        .to(group2Ref.current, { autoAlpha: 1, duration: 0.01 })
+        .to(group1Ref.current, { autoAlpha: 0, duration: 0.4, ease: "power2.inOut" })
+        .to(group2Ref.current, { autoAlpha: 1, duration: 0.4, ease: "power2.inOut" }, "-=0.4")
         .fromTo(group2Cards, 
           { y: 40, opacity: 0 },
           { 
             y: 0, 
             opacity: 1, 
             stagger: 0.05,
-            duration: 1, 
+            duration: 0.8, 
             ease: "power2.out"
           }
         );
