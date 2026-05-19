@@ -1,15 +1,15 @@
 import React from 'react';
 
-const brands = [
-  { name: 'Godrej', logo: '/images/Logo/brand-logos/resized/Godrej_Enterprises_Group 2.svg' },
-  { name: 'IBM', logo: '/images/Logo/brand-logos/resized/IBM_logo 2.svg' },
-  { name: 'Kotak', logo: '/images/Logo/brand-logos/resized/Kotak_Mahindra_Group_logo 2.svg' },
-  { name: 'Morgan Stanley', logo: '/images/Logo/brand-logos/resized/Morgan_Stanley_Logo_2024 2.svg' },
-  { name: 'MSCI', logo: '/images/Logo/brand-logos/resized/MSCI_logo_2019 2.svg' },
-  { name: 'Reliance', logo: '/images/Logo/brand-logos/resized/Frame 5124792.svg' },
-  { name: 'Citi', logo: '/images/Logo/brand-logos/resized/Citi_logo_March_2023 2.svg' },
-  { name: 'Netflix', logo: '/images/Logo/brand-logos/resized/Netflix_2015_logo 2.svg' },
-  { name: 'PwC', logo: '/images/Logo/brand-logos/resized/PwC_Company_Logo 2.svg' },
+const getBrands = () => [
+  { name: 'Godrej', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/Godrej_Enterprises_Group 2.svg` },
+  { name: 'IBM', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/IBM_logo 2.svg` },
+  { name: 'Kotak', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/Kotak_Mahindra_Group_logo 2.svg` },
+  { name: 'Morgan Stanley', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/Morgan_Stanley_Logo_2024 2.svg` },
+  { name: 'MSCI', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/MSCI_logo_2019 2.svg` },
+  { name: 'Reliance', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/Frame 5124792.svg` },
+  { name: 'Citi', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/Citi_logo_March_2023 2.svg` },
+  { name: 'Netflix', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/Netflix_2015_logo 2.svg` },
+  { name: 'PwC', logo: `${import.meta.env.BASE_URL}images/Logo/brand-logos/resized/PwC_Company_Logo 2.svg` },
 ];
 
 const TrustedBrands = () => {
@@ -24,7 +24,7 @@ const TrustedBrands = () => {
 
       <div className="flex gap-12 animate-infinite-scroll py-4">
         {/* Double the list for seamless loop */}
-        {[...brands, ...brands].map((brand, i) => (
+        {[...getBrands(), ...getBrands()].map((brand, i) => (
           <div key={i} className="flex-shrink-0 w-40 h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
             <img 
               src={brand.logo} 

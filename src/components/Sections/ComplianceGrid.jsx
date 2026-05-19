@@ -2,12 +2,12 @@ import React from 'react';
 
 const ComplianceGrid = () => {
   const logos = [
-    '/images/compliance/image.png',
-    '/images/compliance/image-2.png',
-    '/images/compliance/image-4.png',
-    '/images/compliance/image-5.png',
-    '/images/compliance/image-6.png',
-    '/images/compliance/image-7.png',
+    `${import.meta.env.BASE_URL}images/compliance/image.png`,
+    `${import.meta.env.BASE_URL}images/compliance/image-2.png`,
+    `${import.meta.env.BASE_URL}images/compliance/image-4.png`,
+    `${import.meta.env.BASE_URL}images/compliance/image-5.png`,
+    `${import.meta.env.BASE_URL}images/compliance/image-6.png`,
+    `${import.meta.env.BASE_URL}images/compliance/image-7.png`,
   ];
 
   return (
