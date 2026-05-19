@@ -51,12 +51,12 @@ const Footer = () => {
       <div className="bottom-section">
         <div className="left">
           <img
-            src="/images/NEW LOGOS/FOOTERLOGO.svg"
+            src={`${import.meta.env.BASE_URL}images/NEW LOGOS/FOOTERLOGO.svg`}
             style={{ height: '48px', width: 'auto', display: 'block' }}
             alt="logo footer"
           />
           <object
-            data="/images/Logo/iso.svg"
+            data={`${import.meta.env.BASE_URL}images/Logo/iso.svg`}
             type="image/svg+xml"
             height="48px"
           ></object>

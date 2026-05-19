@@ -334,7 +334,7 @@ const EPC = () => {
       <SubPageHero 
         title="Delivering Integrated EPC excellence for Regulated Facilities"
         subtitle="Single-window EPC partner with Holistic Ownership, Accountability, and Integrated execution."
-        backgroundImage="/images/EPC/EPC%20Header%20Image.png"
+        backgroundImage={`${import.meta.env.BASE_URL}images/EPC/EPC%20Header%20Image.png`}
       />
 
       <SectionLayout ref={introRef} className="epc-intro-section">
@@ -361,7 +361,7 @@ const EPC = () => {
       <SectionLayout ref={multiRef} className="epc-multi-section" containerClassName="flex flex-col md:flex-row items-center gap-20">
         <div className="multi-image-box flex-1 h-[70vh]">
           <img 
-            src="/images/EPC/ChatGPT Image May 4, 2026, 01_19_11 PM.png" 
+            src={`${import.meta.env.BASE_URL}images/EPC/ChatGPT Image May 4, 2026, 01_19_11 PM.png`} 
             alt="Facility Model" 
             className="w-full h-full object-cover rounded-2xl shadow-2xl"
           />
@@ -490,7 +490,7 @@ const EPC = () => {
       <section className="epc-approach-banner" ref={approachRef}>
         <div className="approach-banner-inner">
           <img 
-            src="/images/EPC/approach_bg.png" 
+            src={`${import.meta.env.BASE_URL}images/EPC/approach_bg.png`} 
             alt="Our Approach" 
             className="approach-bg-img"
           />

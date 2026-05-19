@@ -302,7 +302,7 @@ const About = () => {
       <SubPageHero 
         title="Engineering High-Quality, Affordable Healthcare Infrastructure"
         subtitle="Optimised. Compliant. Future-ready Solutions"
-        backgroundImage="/images/AboutUs/Header.png"
+        backgroundImage={`${import.meta.env.BASE_URL}images/AboutUs/Header.png`}
       />
 
       <div className="mission-vision-scroll-wrapper" ref={containerRef}>
@@ -316,7 +316,7 @@ const About = () => {
               </p>
             </div>
             <div className="mission-vision-image">
-              <img src="/images/AboutUs/Vision%20Victor.png" alt="Mission Target" />
+              <img src={`${import.meta.env.BASE_URL}images/AboutUs/Vision%20Victor.png`} alt="Mission Target" />
             </div>
           </div>
         </div>
@@ -330,7 +330,7 @@ const About = () => {
               </p>
             </div>
             <div className="mission-vision-image">
-              <img src="/images/AboutUs/Mission%20Victor.png" alt="Vision Lightbulb" />
+              <img src={`${import.meta.env.BASE_URL}images/AboutUs/Mission%20Victor.png`} alt="Vision Lightbulb" />
             </div>
           </div>
         </div>
@@ -367,7 +367,7 @@ const About = () => {
       <section 
         className="sustainability-section" 
         ref={sustainabilitySectionRef}
-        style={{ backgroundImage: 'url("/images/sustainability/Sustainability- Header.jpg")' }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/sustainability/Sustainability- Header.jpg)` }}
       >
         <div className="sustainability-overlay"></div>
         <div className="sustainability-content">
@@ -407,7 +407,7 @@ const About = () => {
         containerClassName="sectors-container"
       >
         <div className="sectors-left">
-          <img src="/images/AboutUs/Sector%20section.png" alt="Biopharma Sector" />
+          <img src={`${import.meta.env.BASE_URL}images/AboutUs/Sector%20section.png`} alt="Biopharma Sector" />
         </div>
         <div className="sectors-right">
           <h4 className="sectors-label">SECTORS</h4>

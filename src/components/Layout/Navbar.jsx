@@ -98,7 +98,7 @@ const Navbar = () => {
           <Link className="link-style-reset" to="/">
             <div className="nav-brand">
               <img
-                src="/images/NEW LOGOS/NAVLOGO.svg"
+                src={`${import.meta.env.BASE_URL}images/NEW LOGOS/NAVLOGO.svg`}
                 alt="HTL brand logo"
                 style={{ height: '36px', width: 'auto', display: 'block' }}
               />
@@ -178,7 +178,7 @@ const Navbar = () => {
         <div className="mobile-nav-header">
           <div className="mobile-brand">
             <Link to="/">
-              <img src="/images/NEW LOGOS/NAVLOGO.svg" alt="HTL Logo" style={{ height: '28px', width: 'auto', display: 'block' }} />
+              <img src={`${import.meta.env.BASE_URL}images/NEW LOGOS/NAVLOGO.svg`} alt="HTL Logo" style={{ height: '28px', width: 'auto', display: 'block' }} />
             </Link>
           </div>
 

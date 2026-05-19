@@ -9,7 +9,7 @@ const VisionMission = () => {
           <div className="group flex flex-col md:flex-row gap-8 items-center md:items-start p-8 rounded-3xl transition-all duration-500 hover:bg-gray-50 border border-transparent hover:border-gray-100">
             <div className="w-full md:w-1/2 aspect-square overflow-hidden rounded-2xl shadow-elevation-2">
               <img 
-                src="/images/about/Vision.webp" 
+                src={`${import.meta.env.BASE_URL}images/about/Vision.webp`} 
                 alt="Vision" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -27,7 +27,7 @@ const VisionMission = () => {
           <div className="group flex flex-col md:flex-row gap-8 items-center md:items-start p-8 rounded-3xl transition-all duration-500 hover:bg-gray-50 border border-transparent hover:border-gray-100">
             <div className="w-full md:w-1/2 aspect-square overflow-hidden rounded-2xl shadow-elevation-2">
               <img 
-                src="/images/about/Mission.webp" 
+                src={`${import.meta.env.BASE_URL}images/about/Mission.webp`} 
                 alt="Mission" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

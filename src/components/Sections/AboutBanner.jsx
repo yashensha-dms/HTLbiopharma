@@ -6,7 +6,7 @@ const AboutBanner = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/AboutUs/Header.png" 
+          src={`${import.meta.env.BASE_URL}images/AboutUs/Header.png`} 
           alt="About HTL" 
           className="w-full h-full object-cover opacity-60"
         />

@@ -15,7 +15,7 @@ const Approach = () => {
       <SubPageHero 
         title="Our Scientific Approach to Excellence" 
         subtitle="Our well structured proven approach ensures efficient execution, regulatory compliance, and accelerated facility readiness."
-        backgroundImage="/images/OurApproach/Our%20approach%20header.png"
+        backgroundImage={`${import.meta.env.BASE_URL}images/OurApproach/Our%20approach%20header.png`}
       />
       <ApproachFlow />
     </div>

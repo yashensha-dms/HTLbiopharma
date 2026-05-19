@@ -109,13 +109,13 @@ const OurTeam = () => {
     {
       name: "Lavinder Duggal",
       role: "Founder & MD at HTL",
-      image: "/images/Teams picture/webp/LavinderDuggal.webp",
+      image: `${import.meta.env.BASE_URL}images/Teams picture/webp/LavinderDuggal.webp`,
       linkedinUrl: "#"
     },
     {
       name: "Bhupinder Duggal",
       role: "President",
-      image: "/images/Teams picture/webp/BhupinderDuggal.webp",
+      image: `${import.meta.env.BASE_URL}images/Teams picture/webp/BhupinderDuggal.webp`,
       linkedinUrl: "#"
     }
   ];
@@ -123,7 +123,7 @@ const OurTeam = () => {
   const ceoData = {
     name: "Abhay Ranjan",
     role: "CEO",
-    image: "/images/team%20new/Abhay%20Ranjan.webp",
+    image: `${import.meta.env.BASE_URL}images/team%20new/Abhay%20Ranjan.webp`,
     linkedinUrl: "#"
   };
 
@@ -131,25 +131,25 @@ const OurTeam = () => {
     {
       name: "Balaji Madrewar",
       role: "Founder & MD at HTL",
-      image: "/images/team%20new/Balaji.jpeg",
+      image: `${import.meta.env.BASE_URL}images/team%20new/Balaji.jpeg`,
       linkedinUrl: "#"
     },
     {
       name: "Sachin Baraskar",
       role: "Founder & MD at HTL",
-      image: "/images/team%20new/Sachin%20Baraskar.webp",
+      image: `${import.meta.env.BASE_URL}images/team%20new/Sachin%20Baraskar.webp`,
       linkedinUrl: "#"
     },
     {
       name: "Jay",
       role: "Founder & MD at HTL",
-      image: "/images/team%20new/Jay%20Parekh.webp",
+      image: `${import.meta.env.BASE_URL}images/team%20new/Jay%20Parekh.webp`,
       linkedinUrl: "#"
     },
     {
       name: "Lalita",
       role: "Founder & MD at HTL",
-      image: "/images/team%20new/Lalita%20Pilankar.webp",
+      image: `${import.meta.env.BASE_URL}images/team%20new/Lalita%20Pilankar.webp`,
       linkedinUrl: "#"
     },
   ];
@@ -301,7 +301,7 @@ const OurTeam = () => {
       <SubPageHero 
         title="Our Team"
         subtitle="A glimpse into our work"
-        backgroundImage="/images/Our%20Team/Header.jpeg"
+        backgroundImage={`${import.meta.env.BASE_URL}images/Our%20Team/Header.jpeg`}
       />
       
       <section className="leadership-section" ref={leadershipRef}>

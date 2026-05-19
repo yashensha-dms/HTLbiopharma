@@ -20,8 +20,8 @@ const Cosmetics = () => {
     <SectorPageLayout
       heroTitle="Delivering Cosmeceuticals Manufacturing Infrastructure"
       heroSubtitle="Hygienic process facilities engineered for automated, high-volume cosmetics and personal care production with strict quality and regulatory compliance."
-      heroBgImage="/images/sectors/header.png"
-      introImage="/images/sectors/cosmetics-intro.png"
+      heroBgImage={`${import.meta.env.BASE_URL}images/sectors/header.png`}
+      introImage={`${import.meta.env.BASE_URL}images/sectors/cosmetics-intro.png`}
       introParagraphs={introParagraphs}
     />
   );
