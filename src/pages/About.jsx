@@ -367,7 +367,7 @@ const About = () => {
             Read our take on
             <span>Sustainability</span>
           </h2>
-          <a href="#" className="read-more-link">READ MORE</a>
+          <Link to="/sustainability" className="read-more-link">READ MORE</Link>
         </div>
       </section>
 

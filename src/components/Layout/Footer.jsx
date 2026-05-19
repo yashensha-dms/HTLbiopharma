@@ -15,6 +15,7 @@ const Footer = () => {
             <Link to="/team">Our Team</Link>
             <Link to="/epc">EPC</Link>
             <Link to="/approach">Our Approach</Link>
+            <Link to="/sustainability">Sustainability</Link>
           </div>
         </div>
         <div className="Topper-containers">

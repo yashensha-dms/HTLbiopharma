@@ -15,6 +15,7 @@ import IndustrialAppliances from './pages/IndustrialAppliances';
 import Cosmetics from './pages/Cosmetics';
 import MedicalDevices from './pages/MedicalDevices';
 import Contact from './pages/Contact';
+import Sustainability from './pages/Sustainability';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/cosmetics" element={<Cosmetics />} />
           <Route path="/medical-devices" element={<MedicalDevices />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sustainability" element={<Sustainability />} />
         </Routes>
       </Layout>
     </Router>
@@ -42,3 +44,4 @@ function App() {
 }
 
 export default App;
+

@@ -136,6 +136,7 @@ const Navbar = () => {
                   <NavLink to="/team">Our Team</NavLink>
                   <NavLink to="/epc">EPC</NavLink>
                   <NavLink to="/approach">Our Approach</NavLink>
+                  <NavLink to="/sustainability">Sustainability</NavLink>
                 </div>
               </div>
             </div>
@@ -208,6 +209,7 @@ const Navbar = () => {
               <Link to="/team">Our Team</Link>
               <Link to="/epc">EPC</Link>
               <Link to="/approach">Our Approach</Link>
+              <Link to="/sustainability">Sustainability</Link>
             </div>
           </div>
 
