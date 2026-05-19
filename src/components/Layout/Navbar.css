@@ -239,11 +239,12 @@ a.disabled:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 110px);
   margin-top: 10px;
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
+  padding-bottom: 40px;
 }
 
 .mobile-dropdown {
@@ -349,7 +350,7 @@ a.disabled:hover {
   }
 
   .mobile-menu.active {
-    height: calc(100vh - 65px);
+    height: calc(100vh - 100px);
   }
 
   .dropdown-btn {
