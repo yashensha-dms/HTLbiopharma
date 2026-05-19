@@ -24,12 +24,16 @@ const LayoutContent = ({ children }) => {
       window.scrollTo(0, 0);
     }
 
-    // Recalculate ScrollTrigger triggers for the new page layout
-    const refreshTimer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 150);
+    // Staggered refresh — catches layout settle, lazy images, and font load
+    const t1 = setTimeout(() => ScrollTrigger.refresh(), 100);
+    const t2 = setTimeout(() => ScrollTrigger.refresh(), 500);
+    const t3 = setTimeout(() => ScrollTrigger.refresh(), 1000);
 
-    return () => clearTimeout(refreshTimer);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+    };
   }, [pathname]);
 
   return (

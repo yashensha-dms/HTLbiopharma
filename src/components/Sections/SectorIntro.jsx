@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import SectionLayout from '../Layout/SectionLayout';
 import './SectorIntro.css';
 
@@ -11,39 +12,35 @@ const SectorIntro = ({ image, paragraphs }) => {
   const imageRef = useRef(null);
   const textRef = useRef(null);
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Image zoom effect on scroll
-      gsap.to(imageRef.current, {
-        scale: 1,
-        ease: "power2.out",
+  useGSAP(() => {
+    // Image zoom effect on scroll
+    gsap.to(imageRef.current, {
+      scale: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 90%",
+        end: "top 10%",
+        scrub: 1
+      }
+    });
+
+    // Text fade up
+    gsap.fromTo(textRef.current.children,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 90%",
-          end: "top 10%",
-          scrub: 1
+          start: "top 65%",
         }
-      });
-
-      // Text fade up
-      gsap.fromTo(textRef.current.children, 
-        { y: 40, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8, 
-          stagger: 0.2, 
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 65%",
-          }
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+      }
+    );
+  }, { scope: sectionRef });
 
   return (
     <SectionLayout ref={sectionRef} className="sector-intro-wrapper">

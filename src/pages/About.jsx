@@ -367,7 +367,7 @@ const About = () => {
       <section 
         className="sustainability-section" 
         ref={sustainabilitySectionRef}
-        style={{ backgroundImage: 'url("/images/Sustainability/Sustainability-%20Header.jpg")' }}
+        style={{ backgroundImage: 'url("/images/sustainability/Sustainability- Header.jpg")' }}
       >
         <div className="sustainability-overlay"></div>
         <div className="sustainability-content">
@@ -390,11 +390,7 @@ const About = () => {
             compliance expertise, and a people-first culture to build trusted, 
             future-ready GMP facilities and mission-critical infrastructure.
           </p>
-          <div className="vertical-intro-nav">
-            <button className="arrow-btn">
-              <ArrowRight />
-            </button>
-          </div>
+         
         </div>
       </SectionLayout>
 

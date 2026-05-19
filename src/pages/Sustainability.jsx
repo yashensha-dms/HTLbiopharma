@@ -128,7 +128,7 @@ const Sustainability = () => {
       <SubPageHero 
         title="Engineering Sustainable Pharmaceutical Infrastructure"
         subtitle="From engineering to delivery, optimising energy, water, waste, and carbon while maintaining uncompromising regulatory compliance."
-        backgroundImage="/images/Sustainability/Sustainability-%20Header.jpg"
+        backgroundImage="/images/sustainability/Sustainability- Header.jpg"
       />
 
       <SectionLayout ref={contentSectionRef} className="sus-content-section" fullWidth={true}>
@@ -138,7 +138,7 @@ const Sustainability = () => {
             <div className="sus-globe-wrapper" ref={globeRef}>
               <div className="sus-globe-glow"></div>
               <img 
-                src="/images/Sustainability/Vector.png" 
+                src="/images/sustainability/vector.png" 
                 alt="Sustainability Globe Vector" 
                 className="sus-globe-img"
               />
