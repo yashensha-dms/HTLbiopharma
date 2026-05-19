@@ -13,11 +13,11 @@ const ComplianceGrid = () => {
   return (
     <section className="bg-white py-20 px-5 md:px-20">
       <div className="container-custom">
-        <h4 className="text-gray-400 text-sm uppercase tracking-[0.2em] mb-16">COMPLIANCE</h4>
+        {/* <h4 className="text-gray-400 text-sm uppercase tracking-[0.2em] mb-16">COMPLIANCE</h4> */}
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 items-center justify-items-center opacity-70 hover:opacity-100 transition-opacity duration-500">
+        <div className="flex flex-wrap gap-12 items-center justify-center transition-opacity duration-500">
           {logos.map((logo, index) => (
-            <div key={index} className="w-full max-w-[200px] grayscale hover:grayscale-0 transition-all duration-300">
+            <div key={index} className="w-full max-w-[200px] opacity-70 hover:opacity-100  transition-all duration-300">
               <img 
                 src={logo} 
                 alt={`Compliance Logo ${index + 1}`} 

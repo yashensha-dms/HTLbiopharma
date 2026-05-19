@@ -38,8 +38,8 @@ const SectorsSection = ({ items = [] }) => {
   return (
     <section className="bg-white py-20 px-5 md:px-20">
       <div className="container-custom">
-        <h4 className="text-gray-400 text-sm uppercase tracking-[0.2em] mb-16">SECTORS</h4>
-        
+        {/* <h4 className="text-gray-400 text-sm uppercase tracking-[0.2em] mb-16">SECTORS</h4>
+         */}
         <div className="flex flex-col">
           {items.map((item, index) => (
             <SectorItem key={index} {...item} />

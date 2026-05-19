@@ -25,12 +25,7 @@ const EPCExcellence = () => {
           </div>
         </div>
 
-        {/* Large Arrow Button */}
-        <div className="hidden md:block">
-          <button className="w-20 h-20 rounded-full bg-white flex items-center justify-center group hover:bg-brand-red transition-all duration-300">
-            <ChevronRight className="w-8 h-8 text-black group-hover:text-white transition-colors" />
-          </button>
-        </div>
+   
       </div>
     </section>
   );
