@@ -8,14 +8,7 @@
   justify-content: center;
   overflow: hidden;
   background-color: #111;
-  margin-top: 64px; /* Account for navbar if needed, or if fixed nav */
-}
-
-/* Adjust if navbar is transparent/absolute */
-@media (min-width: 1024px) {
-  .inner-hero {
-    margin-top: 0;
-  }
+  margin-top: 0;
 }
 
 .inner-hero-bg {

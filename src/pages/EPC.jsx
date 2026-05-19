@@ -408,58 +408,60 @@ const EPC = () => {
 
       <SectionLayout ref={vmodelRef} className="epc-vmodel-section" containerClassName="flex flex-col lg:flex-row items-center gap-10">
         <div className="vmodel-diagram-box flex-1 flex flex-col items-center justify-center">
-          <div className="relative w-full max-w-[650px] aspect-[4/3]">
-            <svg viewBox="0 0 500 400" className="w-full h-full drop-shadow-2xl">
-              <line x1="70" y1="80" x2="430" y2="80" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
-              <line x1="120" y1="160" x2="380" y2="160" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
-              <line x1="170" y1="240" x2="330" y2="240" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
-              <line x1="220" y1="320" x2="280" y2="320" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
+          <div className="w-full max-w-[650px]">
+            <div className="relative w-full aspect-[4/3]">
+              <svg viewBox="0 0 500 400" className="w-full h-full drop-shadow-2xl">
+                <line x1="70" y1="80" x2="430" y2="80" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
+                <line x1="120" y1="160" x2="380" y2="160" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
+                <line x1="170" y1="240" x2="330" y2="240" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
+                <line x1="220" y1="320" x2="280" y2="320" stroke="#ef4444" strokeWidth="1" strokeDasharray="4 4" className="v-link" />
 
-              <path 
-                d="M70 80 L250 360 L430 80" 
-                fill="none" 
-                stroke="#1a1a1a" 
-                strokeWidth="4" 
-                strokeLinecap="round" 
-                className="v-main-path"
-              />
-              
-              <g className="v-step">
-                <circle cx="70" cy="80" r="6" fill="#1a1a1a" />
-                <text x="60" y="70" textAnchor="end" className="v-node-label font-bold fill-gray-900">URS</text>
-              </g>
-              <g className="v-step">
-                <circle cx="120" cy="160" r="6" fill="#1a1a1a" />
-                <text x="110" y="150" textAnchor="end" className="v-node-label font-bold fill-gray-900">Basic Design</text>
-              </g>
-              <g className="v-step">
-                <circle cx="170" cy="240" r="6" fill="#1a1a1a" />
-                <text x="160" y="230" textAnchor="end" className="v-node-label font-bold fill-gray-900">Detailed Design</text>
-              </g>
-              <g className="v-step">
-                <circle cx="220" cy="320" r="6" fill="#1a1a1a" />
-                <text x="210" y="310" textAnchor="end" className="v-node-label font-bold fill-gray-900">DQ</text>
-              </g>
+                <path 
+                  d="M70 80 L250 360 L430 80" 
+                  fill="none" 
+                  stroke="#1a1a1a" 
+                  strokeWidth="4" 
+                  strokeLinecap="round" 
+                  className="v-main-path"
+                />
+                
+                <g className="v-step">
+                  <circle cx="70" cy="80" r="6" fill="#1a1a1a" />
+                  <text x="60" y="70" textAnchor="end" className="v-node-label font-bold fill-gray-900">URS</text>
+                </g>
+                <g className="v-step">
+                  <circle cx="120" cy="160" r="6" fill="#1a1a1a" />
+                  <text x="110" y="150" textAnchor="end" className="v-node-label font-bold fill-gray-900">Basic Design</text>
+                </g>
+                <g className="v-step">
+                  <circle cx="170" cy="240" r="6" fill="#1a1a1a" />
+                  <text x="160" y="230" textAnchor="end" className="v-node-label font-bold fill-gray-900">Detailed Design</text>
+                </g>
+                <g className="v-step">
+                  <circle cx="220" cy="320" r="6" fill="#1a1a1a" />
+                  <text x="210" y="310" textAnchor="end" className="v-node-label font-bold fill-gray-900">DQ</text>
+                </g>
 
-              <g className="v-step">
-                <circle cx="280" cy="320" r="6" fill="#ef4444" />
-                <text x="290" y="310" textAnchor="start" className="v-node-label font-bold fill-red-600">IQ</text>
-              </g>
-              <g className="v-step">
-                <circle cx="330" cy="240" r="6" fill="#ef4444" />
-                <text x="340" y="230" textAnchor="start" className="v-node-label font-bold fill-red-600">OQ</text>
-              </g>
-              <g className="v-step">
-                <circle cx="380" cy="160" r="6" fill="#ef4444" />
-                <text x="390" y="150" textAnchor="start" className="v-node-label font-bold fill-red-600">PQ</text>
-              </g>
-              <g className="v-step">
-                <circle cx="430" cy="80" r="6" fill="#ef4444" />
-                <text x="420" y="70" textAnchor="start" className="v-node-label font-bold fill-red-600">Validation</text>
-              </g>
-            </svg>
+                <g className="v-step">
+                  <circle cx="280" cy="320" r="6" fill="#ef4444" />
+                  <text x="290" y="310" textAnchor="start" className="v-node-label font-bold fill-red-600">IQ</text>
+                </g>
+                <g className="v-step">
+                  <circle cx="330" cy="240" r="6" fill="#ef4444" />
+                  <text x="340" y="230" textAnchor="start" className="v-node-label font-bold fill-red-600">OQ</text>
+                </g>
+                <g className="v-step">
+                  <circle cx="380" cy="160" r="6" fill="#ef4444" />
+                  <text x="390" y="150" textAnchor="start" className="v-node-label font-bold fill-red-600">PQ</text>
+                </g>
+                <g className="v-step">
+                  <circle cx="430" cy="80" r="6" fill="#ef4444" />
+                  <text x="420" y="70" textAnchor="start" className="v-node-label font-bold fill-red-600">Validation</text>
+                </g>
+              </svg>
+            </div>
 
-            <div className="strategy-row flex justify-center gap-6 mt-16">
+            <div className="strategy-row flex justify-center gap-6 mt-6 md:mt-16">
               {['Conceptualisation', 'Construction', 'Verification'].map((text, i) => (
                 <div key={i} className="strategy-card flex-1 bg-white border border-gray-100 shadow-xl py-4 px-2 text-center rounded-lg transition-all hover:bg-red-50 group">
                   <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400 group-hover:text-red-600 transition-colors">{text}</p>

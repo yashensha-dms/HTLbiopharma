@@ -200,9 +200,17 @@ a.disabled:hover {
   height: 32px;
 }
 
-.mobile-menu-toggle svg rect {
-  transition: all 0.3s ease;
+.mobile-burger rect {
+  transition: transform 0.25s ease-in-out;
   transform-origin: center;
+}
+
+.mobile-menu-toggle.active .mobile-top {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .mobile-bot {
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 .mobile-brand {

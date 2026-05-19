@@ -8,9 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const IntroSection = () => {
   return (
-    <section className="bg-black py-20 px-5 md:px-20">
-      <div className="container-custom bg-white rounded-[40px] md:rounded-[80px] p-12 md:p-24 overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
+    <section className="bg-black py-10 px-4 md:py-20 md:px-20">
+      <div className="container-custom bg-white rounded-[32px] md:rounded-[80px] p-6 md:p-24 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start">
           
           {/* Left Column */}
           <div className="relative pt-12 md:pt-0">

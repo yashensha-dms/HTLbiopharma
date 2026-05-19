@@ -329,7 +329,7 @@
     position: relative;
     height: auto;
     width: 100%;
-    padding: 80px 20px;
+    padding: 40px 20px;
     z-index: auto;
     background-color: #ffffff;
   }
@@ -339,24 +339,36 @@
   }
   .mission-vision-container {
     flex-direction: column !important;
-    gap: 40px;
+    gap: 24px;
     text-align: center;
+  }
+  .section-label {
+    justify-content: center;
+    margin-bottom: 16px;
   }
   .section-text {
     font-size: 24px;
   }
   .mission-vision-image img {
-    max-width: 250px;
+    max-width: 160px;
+  }
+  .why-htl-section {
+    padding: 60px 0;
+    min-height: auto;
   }
   .why-htl-title {
     font-size: 42px;
   }
   .why-htl-container {
-    padding: 0 40px;
+    padding: 0 24px;
+  }
+  .why-list {
+    gap: 32px;
   }
   .why-text {
-    padding-left: 40px;
-    font-size: 20px;
+    padding-left: 0;
+    font-size: 15px;
+    line-height: 1.4;
   }
   .sustainability-content {
     padding: 0 40px;

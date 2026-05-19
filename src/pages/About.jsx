@@ -166,7 +166,7 @@ const About = () => {
       const whyTl = gsap.timeline({
         scrollTrigger: {
           trigger: item,
-          start: 'top 90%',
+          start: 'top bottom-=40px',
           toggleActions: 'play none none reverse'
         }
       });

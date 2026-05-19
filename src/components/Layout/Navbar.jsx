@@ -186,13 +186,13 @@ const Navbar = () => {
             <svg
               width="32"
               height="32"
-              viewBox="0 0 48 48"
+              viewBox="0 0 56 46"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="mobile-burger"
             >
-              <rect y="10" width="32" height="4" fill="white" />
-              <rect y="20" width="32" height="4" fill="white" />
-              <rect y="30" width="32" height="4" fill="white" />
+              <rect className="mobile-top" y="9" width="48" height="6" fill="white" />
+              <rect className="mobile-bot" y="29" width="48" height="6" fill="white" />
             </svg>
           </div>
         </div>
