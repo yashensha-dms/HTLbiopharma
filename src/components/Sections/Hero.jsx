@@ -9,7 +9,19 @@ const Hero = ({
   subtitle = null
 }) => {
   const container = useRef();
+  const videoRef = useRef();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      // Force play in case browser paused it
+      videoRef.current.play().catch((err) => {
+        console.log("Autoplay prevented:", err);
+      });
+    }
+  }, []);
 
   useGSAP(() => {
     gsap.fromTo('.hero-content h1',
@@ -36,6 +48,7 @@ const Hero = ({
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop

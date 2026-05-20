@@ -51,3 +51,12 @@
     @apply opacity-90 scale-[1.02];
   }
 }
+
+/* Hide Safari/WebKit video controls & play button overlays */
+video::-webkit-media-controls-start-play-button,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+}
