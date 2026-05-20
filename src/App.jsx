@@ -17,7 +17,7 @@ import MedicalDevices from './pages/MedicalDevices';
 import Contact from './pages/Contact';
 import Sustainability from './pages/Sustainability';
 
-const basename = '/';
+const basename = import.meta.env.BASE_URL;
 
 function App() {
   return (
