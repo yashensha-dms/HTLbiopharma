@@ -130,25 +130,25 @@ const OurTeam = () => {
   const managementData = [
     {
       name: "Balaji Madrewar",
-      role: "Founder & MD at HTL",
+      role: "Vice President Projects",
       image: `${import.meta.env.BASE_URL}images/team%20new/Balaji.jpeg`,
       linkedinUrl: "#"
     },
     {
       name: "Sachin Baraskar",
-      role: "Founder & MD at HTL",
+      role: "National MEP Head",
       image: `${import.meta.env.BASE_URL}images/team%20new/Sachin%20Baraskar.webp`,
       linkedinUrl: "#"
     },
     {
-      name: "Jay",
-      role: "Founder & MD at HTL",
+      name: "Jay Parekh",
+      role: "Head of Finance",
       image: `${import.meta.env.BASE_URL}images/team%20new/Jay%20Parekh.webp`,
       linkedinUrl: "#"
     },
     {
-      name: "Lalita",
-      role: "Founder & MD at HTL",
+      name: "Lalitha Pilankar",
+      role: "Head of Procurement",
       image: `${import.meta.env.BASE_URL}images/team%20new/Lalita%20Pilankar.webp`,
       linkedinUrl: "#"
     },
